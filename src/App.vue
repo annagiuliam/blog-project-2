@@ -2,6 +2,7 @@
   <v-app>
     <InputDialog />
     <PostDialog />
+    <router-view />
 
     <v-container class="d-flex flex-column justify-center">
       <v-btn
@@ -27,6 +28,7 @@
         </v-col>
       </v-row>
     </v-container>
+    <router-link to="/test-page">See Post</router-link>
   </v-app>
 </template>
 
