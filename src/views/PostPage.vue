@@ -1,7 +1,6 @@
 <template>
   <div>
-    <div>{{ this.$route.params.id }}</div>
-    <PostContent :post="post" />
+    <PostContent :post="this.post" />
   </div>
 </template>
 
@@ -9,10 +8,8 @@
 import PostContent from "./../components/PostContent";
 export default {
   name: "PostPage",
-  data() {
-    return {
-      postId: this.$route.params.id,
-    };
+  props: {
+    postId: { type: String, required: true },
   },
   computed: {
     post() {
@@ -20,6 +17,9 @@ export default {
     },
   },
   components: { PostContent },
+  created() {
+    console.log(this.postId);
+  },
 };
 </script>
 

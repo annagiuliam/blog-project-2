@@ -2,15 +2,19 @@ import Vue from "vue";
 import Router from "vue-router";
 
 import Home from "./../views/Home";
-import PostPage from "./../views/PostPage";
-import TestPage from "./../views/TestPage";
 
 Vue.use(Router);
 
 export default new Router({
+  mode: "history",
   routes: [
     { path: "/", component: Home },
-    { path: "/post-page/:id", name: "post-page", component: PostPage },
-    { path: "/test-page", component: TestPage },
+    {
+      path: "/post-page/:postId",
+      name: "post-page",
+      component: () =>
+        import(/* webpackChunkName: 'post-page'*/ "./../views/PostPage"),
+      props: true,
+    },
   ],
 });

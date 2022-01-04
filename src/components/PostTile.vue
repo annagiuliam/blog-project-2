@@ -3,7 +3,7 @@
     <PostContent :post="post" :elip="elip" />
     <v-row>
       <v-btn class="mx-auto mb-3" outlined color="indigo">
-        <router-link :to="{ name: 'post-page', params: { id: post.id } }"
+        <router-link :to="{ name: 'post-page', params: { postId: post.id } }"
           >read</router-link
         >
       </v-btn>
@@ -19,16 +19,6 @@ export default {
   components: {
     PostContent,
   },
-  // methods: {
-  //   openPostDialog() {
-  //     this.$store.dispatch("updateCurrentPost", this.post);
-  //     this.$store.dispatch("openPostDialog");
-  //   },
-  //   updateCurrentPost() {
-  //     this.$store.dispatch("updateCurrentPost", this.post);
-  //     console.log("updated current post");
-  //   },
-  // },
 };
 </script>
 
