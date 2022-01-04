@@ -4,7 +4,7 @@
       <v-list-item-content>
         <v-row class="d-flex justify-space-between align-center">
           <v-col>
-            <div class="text-overline mb-1">
+            <div class="mb-1" :class="cathegoryFontSize">
               {{ displayedPost.category }}
             </div></v-col
           >
@@ -29,18 +29,6 @@
               @click="editPost"
             >
               <v-icon>mdi-pencil</v-icon>
-            </v-btn>
-
-            <v-btn
-              class="ma-2"
-              outlined
-              fab
-              x-small
-              color="indigo"
-              @click="closePostDialog"
-              v-if="!elip"
-            >
-              <v-icon>mdi-close</v-icon>
             </v-btn>
           </v-col>
         </v-row>
@@ -85,6 +73,10 @@ export default {
       let className = this.elip ? "text-elip" : "";
       return className;
     },
+    cathegoryFontSize() {
+      let className = this.elip ? "text-overline" : "cat-font-size";
+      return className;
+    },
     currentPost() {
       return this.$store.state.currentPost;
     },
@@ -115,5 +107,10 @@ export default {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.cat-font-size {
+  font-size: 2rem;
+  text-transform: uppercase;
 }
 </style>
