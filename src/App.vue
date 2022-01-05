@@ -1,7 +1,9 @@
 <template>
   <v-app>
     <InputDialog />
-    <router-view />
+    <transition name="fade">
+      <router-view />
+    </transition>
   </v-app>
 </template>
 
@@ -15,3 +17,14 @@ export default {
   },
 };
 </script>
+<style>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
