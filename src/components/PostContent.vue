@@ -8,7 +8,7 @@
               {{ displayedPost.category }}
             </div></v-col
           >
-          <v-col class="d-flex justify-end align-center pa-1">
+          <v-col class="d-flex justify-end align-center pa-1 mr-1">
             <v-btn
               outlined
               fab
