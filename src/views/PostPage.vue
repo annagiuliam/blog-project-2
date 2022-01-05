@@ -26,9 +26,6 @@ export default {
     },
   },
   components: { PostContent, GoBackBtn },
-  // created() {
-  //   console.log(this.$route);
-  // },
 };
 </script>
 

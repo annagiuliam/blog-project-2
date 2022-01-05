@@ -91,7 +91,6 @@ export default {
         this.closePostDialog();
       }
       if (this.$route.name === "post-page") {
-        console.log(this.$route.name);
         this.$router.push({ name: "home" });
       }
     },
