@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <InputDialog />
-    <transition name="moveUp">
+    <transition name="fade">
       <router-view />
     </transition>
   </v-app>
@@ -18,7 +18,7 @@ export default {
 };
 </script>
 <style>
-.moveUp-enter-active {
+.fade-enter-active {
   animation: fadeIn 1s ease-in;
 }
 
@@ -32,9 +32,5 @@ export default {
   100% {
     opacity: 1;
   }
-}
-
-.moveUp-leave-active {
-  animation: moveUp 0.3s eaase-in;
 }
 </style>
