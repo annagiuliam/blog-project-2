@@ -11,7 +11,7 @@ export default {
   name: "GoBackBtn",
   methods: {
     goBack() {
-      return this.$router.go(-1);
+      return this.$router.back();
     },
   },
 };

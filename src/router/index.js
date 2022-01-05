@@ -8,7 +8,7 @@ Vue.use(Router);
 export default new Router({
   mode: "history",
   routes: [
-    { path: "/", component: Home },
+    { path: "/", name: "home", component: Home },
     {
       path: "/post-page/:postId",
       name: "post-page",

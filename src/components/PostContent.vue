@@ -90,6 +90,10 @@ export default {
       if (this.$store.state.postDialog) {
         this.closePostDialog();
       }
+      if (this.$route.name === "post-page") {
+        console.log(this.$route.name);
+        this.$router.push({ name: "home" });
+      }
     },
     closePostDialog() {
       this.$store.dispatch("closePostDialog");
