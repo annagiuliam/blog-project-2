@@ -7,7 +7,7 @@
         outlined
         color="indigo"
         :to="{ name: 'post-page', params: { postId: post.id } }"
-        >read
+        >lesen
       </v-btn>
     </v-row>
   </v-card>
