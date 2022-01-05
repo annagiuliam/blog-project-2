@@ -2,10 +2,12 @@
   <v-card>
     <PostContent :post="post" :elip="elip" />
     <v-row>
-      <v-btn class="mx-auto mb-3" outlined color="indigo">
-        <router-link :to="{ name: 'post-page', params: { postId: post.id } }"
-          >read</router-link
-        >
+      <v-btn
+        class="mx-auto mb-3"
+        outlined
+        color="indigo"
+        :to="{ name: 'post-page', params: { postId: post.id } }"
+        >read
       </v-btn>
     </v-row>
   </v-card>
