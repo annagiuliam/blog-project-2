@@ -77,7 +77,7 @@ export default {
           });
         }
         if (this.filters.date) {
-          tempPosts.sort((a, b) => b.date - a.date);
+          tempPosts.sort((a, b) => b.creationDate - a.creationDate);
         }
       }
       return tempPosts;

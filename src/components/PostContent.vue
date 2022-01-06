@@ -62,7 +62,7 @@ export default {
   props: ["post", "elip"],
   computed: {
     formattedDate() {
-      return this.displayedPost.date.toLocaleDateString(
+      return this.displayedPost.creationDate.toLocaleDateString(
         undefined,
         this.dateOptions
       );

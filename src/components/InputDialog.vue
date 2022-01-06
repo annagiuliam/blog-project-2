@@ -128,7 +128,7 @@ export default {
         title: "",
         content: "",
         // these are not connected to the form with v-model
-        date: "",
+        creationDate: "",
         id: "",
       },
     };
@@ -166,7 +166,7 @@ export default {
         Date.now();
     },
     setDate() {
-      this.postData.date = new Date();
+      this.postData.creationDate = new Date();
     },
     sendMessage() {
       console.log(this.fullName);
