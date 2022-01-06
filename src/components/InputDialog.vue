@@ -34,16 +34,38 @@
               <v-form ref="form">
                 <v-container fluid>
                   <v-row align="center">
-                    <v-col cols="12" sm="6" md="6">
-                      <v-text-field
+                    <v-col :cols="cols" :sm="smallCols" :md="mediumCols">
+                      <!-- <v-text-field
                         v-model="postData.author"
                         label="Authorenname"
+                        required
+                        :rules="inputRules"
+                      ></v-text-field> -->
+                      <v-text-field
+                        v-model="postData.firstName"
+                        label="Vorname"
                         required
                         :rules="inputRules"
                       ></v-text-field>
                     </v-col>
 
-                    <v-col cols="12" sm="6" md="6">
+                    <v-col :cols="cols" :sm="smallCols" :md="mediumCols">
+                      <v-text-field
+                        v-model="postData.middleName"
+                        label="Mittelname"
+                      ></v-text-field>
+                    </v-col>
+
+                    <v-col :cols="cols" :sm="smallCols" :md="mediumCols">
+                      <v-text-field
+                        v-model="postData.lastName"
+                        label="Nachname"
+                      ></v-text-field>
+                    </v-col>
+                  </v-row>
+
+                  <v-row>
+                    <v-col cols="12" sm="6">
                       <v-select
                         :items="categories"
                         label="Kategorie"
@@ -53,7 +75,7 @@
                       ></v-select>
                     </v-col>
 
-                    <v-col cols="12">
+                    <v-col cols="12" sm="6">
                       <v-text-field
                         v-model="postData.title"
                         label="Titel"
@@ -62,6 +84,7 @@
                       ></v-text-field>
                     </v-col>
                   </v-row>
+
                   <v-row>
                     <v-textarea
                       label="Inhalt"
@@ -73,6 +96,7 @@
                       :rules="inputRules"
                     ></v-textarea>
                   </v-row>
+
                   <v-row justify="end">
                     <v-btn @click="sendMessage">Speichern</v-btn>
                   </v-row>
@@ -91,13 +115,20 @@ export default {
   name: "InputDialog",
   data() {
     return {
+      cols: 12,
+      smallCols: 6,
+      mediumCols: 4,
       inputRules: [(v) => !!v || "Inhalt fehlt"],
       postData: {
-        author: "",
+        // author: "",
+        firstName: "",
+        middleName: "",
+        lastName: "",
         category: "",
-        date: "",
         title: "",
         content: "",
+        // these are not connected to the form with v-model
+        date: "",
         id: "",
       },
     };
@@ -130,14 +161,15 @@ export default {
   methods: {
     setPostId() {
       this.postData.id =
-        this.postData.author.slice(0, 1) +
-        this.postData.author.slice(-1) +
+        this.postData.firstName.slice(0, 1) +
+        this.postData.firstName.slice(-1) +
         Date.now();
     },
     setDate() {
       this.postData.date = new Date();
     },
     sendMessage() {
+      console.log(this.fullName);
       const formValid = this.$refs.form.validate();
       if (formValid) {
         let finalData;

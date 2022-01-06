@@ -37,13 +37,11 @@
         </v-list-item-title>
         <v-row justify="space-between">
           <v-col>
-            <v-list-item-subtitle>{{
-              displayedPost.author
-            }}</v-list-item-subtitle>
+            <v-list-item-subtitle>{{ fullName }}</v-list-item-subtitle>
           </v-col>
           <v-col>
             <v-list-item-subtitle class="text-right">{{
-              this.formattedDate
+              formattedDate
             }}</v-list-item-subtitle>
           </v-col>
         </v-row>
@@ -82,6 +80,9 @@ export default {
     },
     displayedPost() {
       return this.post ? this.post : this.currentPost;
+    },
+    fullName() {
+      return `${this.displayedPost.firstName} ${this.displayedPost.middleName} ${this.displayedPost.lastName}`.trim();
     },
   },
   methods: {
