@@ -151,9 +151,6 @@ export default {
         this.postData = { ...newVal };
       } else {
         Object.keys(this.postData).forEach((ele) => (this.postData[ele] = ""));
-        // this.$refs.form.reset();
-        // this.postData.date = null;
-        // this.postData.id = null;
       }
       console.log(this.postData);
     },
@@ -169,19 +166,20 @@ export default {
       this.postData.creationDate = new Date();
     },
     sendMessage() {
-      console.log(this.fullName);
       const formValid = this.$refs.form.validate();
       if (formValid) {
         let finalData;
         if (this.$store.state.currentPost) {
           finalData = { ...this.postData };
           this.$store.dispatch("editPost", finalData);
+          this.$store.dispatch("clearCurrentPost");
           // after you edit the post, if PostDialog is open update the currentPost so it can be displayed in the PostDialog
-          if (this.$store.state.postDialog) {
-            this.$store.dispatch("updateCurrentPost", finalData);
-          } else {
-            this.$store.dispatch("clearCurrentPost");
-          }
+
+          // if (this.$store.state.postDialog) {
+          //   this.$store.dispatch("updateCurrentPost", finalData);
+          // } else {
+          //   this.$store.dispatch("clearCurrentPost");
+          // }
         } else {
           // it is a new post and you need to set date and id
           this.setPostId();
@@ -191,15 +189,16 @@ export default {
           console.log(finalData);
         }
         this.closeInputDialog();
-        this.$refs.form.reset();
       }
     },
     closeInputDialog() {
       this.$store.dispatch("closeInputDialog");
+      this.$store.dispatch("clearCurrentPost");
+      this.$refs.form.reset();
       // if PostDialog is not open you don't need currentPost
-      if (!this.$store.state.postDialog) {
-        this.$store.dispatch("clearCurrentPost");
-      }
+      // if (!this.$store.state.postDialog) {
+      //   this.$store.dispatch("clearCurrentPost");
+      // }
     },
   },
 };
