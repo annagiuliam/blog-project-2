@@ -65,7 +65,7 @@
                   </v-row>
 
                   <v-row>
-                    <v-col cols="12" sm="6">
+                    <v-col cols="12" sm="4">
                       <v-select
                         :items="categories"
                         label="Kategorie"
@@ -75,7 +75,7 @@
                       ></v-select>
                     </v-col>
 
-                    <v-col cols="12" sm="6">
+                    <v-col cols="12" sm="8">
                       <v-text-field
                         v-model="postData.title"
                         label="Titel"
