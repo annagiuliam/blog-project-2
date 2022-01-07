@@ -76,16 +76,12 @@ export default {
   methods: {
     deletePost() {
       this.$store.dispatch("deletePost", this.displayedPost);
-      if (this.$store.state.postDialog) {
-        this.closePostDialog();
-      }
+
       if (this.$route.name === "post-page") {
         this.$router.push({ name: "home" });
       }
     },
-    closePostDialog() {
-      this.$store.dispatch("closePostDialog");
-    },
+
     editPost() {
       this.$store.dispatch("updateCurrentPost", this.displayedPost);
       this.$store.dispatch("openInputDialog");

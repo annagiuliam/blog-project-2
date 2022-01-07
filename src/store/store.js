@@ -9,7 +9,7 @@ export const store = new Vuex.Store({
     currentPost: null,
     posts: [],
     categories: ["Politik", "Natur", "Aktuell", "Umwelt"],
-    postDialog: false,
+
     inputDialog: false,
   },
 
@@ -32,12 +32,7 @@ export const store = new Vuex.Store({
     updateCurrentPost: (state, payload) => {
       state.currentPost = { ...payload };
     },
-    openPostDialog: (state) => {
-      state.postDialog = true;
-    },
-    closePostDialog: (state) => {
-      state.postDialog = false;
-    },
+
     openInputDialog: (state) => {
       state.inputDialog = true;
     },
@@ -46,6 +41,7 @@ export const store = new Vuex.Store({
     },
     clearCurrentPost: (state) => {
       state.currentPost = null;
+      console.log(state.currentPost);
     },
   },
 
@@ -65,13 +61,7 @@ export const store = new Vuex.Store({
     updateCurrentPost: ({ commit }, payload) => {
       commit("updateCurrentPost", payload);
     },
-    openPostDialog: ({ commit }) => {
-      commit("openPostDialog");
-    },
-    closePostDialog: ({ commit }) => {
-      commit("closePostDialog");
-      commit("clearCurrentPost");
-    },
+
     openInputDialog: ({ commit }) => {
       commit("openInputDialog");
     },

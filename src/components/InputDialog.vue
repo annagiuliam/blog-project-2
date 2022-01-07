@@ -173,13 +173,6 @@ export default {
           finalData = { ...this.postData };
           this.$store.dispatch("editPost", finalData);
           this.$store.dispatch("clearCurrentPost");
-          // after you edit the post, if PostDialog is open update the currentPost so it can be displayed in the PostDialog
-
-          // if (this.$store.state.postDialog) {
-          //   this.$store.dispatch("updateCurrentPost", finalData);
-          // } else {
-          //   this.$store.dispatch("clearCurrentPost");
-          // }
         } else {
           // it is a new post and you need to set date and id
           this.setPostId();
@@ -195,10 +188,6 @@ export default {
       this.$store.dispatch("closeInputDialog");
       this.$store.dispatch("clearCurrentPost");
       this.$refs.form.reset();
-      // if PostDialog is not open you don't need currentPost
-      // if (!this.$store.state.postDialog) {
-      //   this.$store.dispatch("clearCurrentPost");
-      // }
     },
   },
 };
