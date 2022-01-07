@@ -9,27 +9,12 @@
             </div></v-col
           >
           <v-col class="d-flex justify-end align-center pa-1 mr-1">
-            <v-btn
-              outlined
-              fab
-              color="indigo"
-              x-small
-              @click="deletePost"
-              class="ma-2"
-            >
+            <RoundBtn @click="deletePost">
               <v-icon>mdi-delete-outline</v-icon>
-            </v-btn>
-
-            <v-btn
-              outlined
-              fab
-              color="indigo"
-              x-small
-              class="ma-2"
-              @click="editPost"
-            >
+            </RoundBtn>
+            <RoundBtn @click="editPost">
               <v-icon>mdi-pencil</v-icon>
-            </v-btn>
+            </RoundBtn>
           </v-col>
         </v-row>
         <v-list-item-title class="text-h5 mb-1">
@@ -52,7 +37,10 @@
 </template>
 
 <script>
+import RoundBtn from "./RoundBtn.vue";
+
 export default {
+  components: { RoundBtn },
   name: "PostContent",
   data() {
     return {
