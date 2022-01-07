@@ -1,14 +1,15 @@
 <template>
   <div>
     <v-container class="d-flex flex-column justify-center">
-      <v-btn
+      <!-- <v-btn
         class="my-9 mx-auto"
         outlined
         color="indigo"
         @click="openInputDialog"
       >
         Neuer Beitrag
-      </v-btn>
+      </v-btn> -->
+      <SquareBtn @click="openInputDialog">Neuer Beitrag</SquareBtn>
       <div v-if="posts.length > 0">
         <Filters @updateFilters="updateFilters" />
       </div>
@@ -30,6 +31,7 @@
 <script>
 import PostTile from "./../components/PostTile.vue";
 import Filters from "./../components/Filters.vue";
+import SquareBtn from "./../components/SquareBtn.vue";
 export default {
   name: "Home",
   data() {
@@ -40,6 +42,7 @@ export default {
   components: {
     Filters,
     PostTile,
+    SquareBtn,
   },
   computed: {
     posts() {

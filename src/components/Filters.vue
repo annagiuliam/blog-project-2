@@ -37,16 +37,16 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-btn outlined color="indigo" @click="deleteAllPosts" class="mx-auto"
-        >Alle Beiträge löschen</v-btn
-      >
+      <SquareBtn @click="deleteAllPosts">Alle Beiträge löschen</SquareBtn>
     </v-row>
   </v-container>
 </template>
 
 <script>
+import SquareBtn from "./SquareBtn.vue";
 export default {
   name: "Filters",
+  components: { SquareBtn },
   data() {
     return {
       cols: 12,
