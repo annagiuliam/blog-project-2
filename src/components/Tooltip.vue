@@ -1,7 +1,4 @@
 <template>
-  <!-- <div style="position: relative">
-    <span class="tooltip"><slot /></span>
-  </div> -->
   <div class="tooltip"><slot /></div>
 </template>
 
@@ -13,14 +10,10 @@ export default {
 
 <style>
 .tooltip {
-  width: 120%;
   position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  top: -45%;
-  text-align: center;
+  top: -20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   padding: 5px;
   background-color: black;
   color: white;
