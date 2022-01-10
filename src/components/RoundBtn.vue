@@ -21,7 +21,7 @@ import Tooltip from "./Tooltip.vue";
 export default {
   data() {
     return {
-      showTooltip: true,
+      showTooltip: false,
     };
   },
   props: ["tooltipText"],

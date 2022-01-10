@@ -8,13 +8,11 @@
               {{ displayedPost.category }}
             </div></v-col
           >
-          <v-col
-            class="d-flex justify-end align-center pa-1 mr-1 overflow-visible"
-          >
-            <RoundBtn @click="deletePost" tooltipText="delete">
+          <v-col class="d-flex justify-end align-center pa-1 mr-1">
+            <RoundBtn @click="deletePost" tooltipText="löschen">
               <v-icon>mdi-delete-outline</v-icon>
             </RoundBtn>
-            <RoundBtn @click="editPost" tooltipText="edit">
+            <RoundBtn @click="editPost" tooltipText="bearbeiten">
               <v-icon>mdi-pencil</v-icon>
             </RoundBtn>
           </v-col>
@@ -40,9 +38,9 @@
 
 <script>
 import RoundBtn from "./RoundBtn.vue";
-import Tooltip from "./Tooltip.vue";
+
 export default {
-  components: { RoundBtn, Tooltip },
+  components: { RoundBtn },
   name: "PostContent",
   data() {
     return {
