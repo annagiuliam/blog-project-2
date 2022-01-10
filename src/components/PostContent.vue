@@ -1,18 +1,20 @@
 <template>
   <v-container>
     <v-list-item three-line>
-      <v-list-item-content>
+      <v-list-item-content class="overflow-visible">
         <v-row class="d-flex justify-space-between align-center">
           <v-col>
             <div class="mb-1" :class="cathegoryFontSize">
               {{ displayedPost.category }}
             </div></v-col
           >
-          <v-col class="d-flex justify-end align-center pa-1 mr-1">
-            <RoundBtn @click="deletePost">
+          <v-col
+            class="d-flex justify-end align-center pa-1 mr-1 overflow-visible"
+          >
+            <RoundBtn @click="deletePost" tooltipText="delete">
               <v-icon>mdi-delete-outline</v-icon>
             </RoundBtn>
-            <RoundBtn @click="editPost">
+            <RoundBtn @click="editPost" tooltipText="edit">
               <v-icon>mdi-pencil</v-icon>
             </RoundBtn>
           </v-col>
@@ -38,9 +40,9 @@
 
 <script>
 import RoundBtn from "./RoundBtn.vue";
-
+import Tooltip from "./Tooltip.vue";
 export default {
-  components: { RoundBtn },
+  components: { RoundBtn, Tooltip },
   name: "PostContent",
   data() {
     return {
