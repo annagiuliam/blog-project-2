@@ -65,9 +65,7 @@
                         :rules="[rules.lengthRule(10)]"
                       ></v-text-field>
                     </v-col>
-                  </v-row>
 
-                  <v-row>
                     <v-col cols="12" sm="6">
                       <v-text-field
                         type="email"
