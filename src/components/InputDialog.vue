@@ -41,6 +41,7 @@
                         required
                         :rules="inputRules"
                       ></v-text-field> -->
+
                       <v-text-field
                         v-model="postData.firstName"
                         label="Vorname"
@@ -62,6 +63,17 @@
                         v-model="postData.lastName"
                         label="Nachname"
                         :rules="[rules.lengthRule(10)]"
+                      ></v-text-field>
+                    </v-col>
+                  </v-row>
+
+                  <v-row>
+                    <v-col cols="12" sm="6">
+                      <v-text-field
+                        type="email"
+                        v-model="postData.email"
+                        label="E-Mail"
+                        :rules="[rules.requiredRule, rules.emailRule]"
                       ></v-text-field>
                     </v-col>
                   </v-row>
@@ -124,7 +136,7 @@ export default {
         requiredRule: (v) => !!v || "Inhalt fehlt",
         lengthRule(length) {
           return (v) =>
-            v.length <= length || `Max. ${length} Buchstaben erlaubt`;
+            !v || v.length <= length || `Max. ${length} Buchstaben erlaubt`;
         },
         emailRule: (v) => {
           const pattern = /^\S+@\S+$/; // @ sign preceded and followed by one or more whitespaces characters
@@ -137,6 +149,7 @@ export default {
         firstName: "",
         middleName: "",
         lastName: "",
+        email: "",
         category: "",
         title: "",
         content: "",
