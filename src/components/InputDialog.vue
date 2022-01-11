@@ -45,7 +45,7 @@
                         v-model="postData.firstName"
                         label="Vorname"
                         required
-                        :rules="inputRules"
+                        :rules="[rules.requiredRule, rules.lengthRule(10)]"
                       ></v-text-field>
                     </v-col>
 
@@ -53,6 +53,7 @@
                       <v-text-field
                         v-model="postData.middleName"
                         label="Mittelname"
+                        :rules="[rules.lengthRule(10)]"
                       ></v-text-field>
                     </v-col>
 
@@ -60,6 +61,7 @@
                       <v-text-field
                         v-model="postData.lastName"
                         label="Nachname"
+                        :rules="[rules.lengthRule(10)]"
                       ></v-text-field>
                     </v-col>
                   </v-row>
@@ -71,7 +73,7 @@
                         label="Kategorie"
                         v-model="postData.category"
                         required
-                        :rules="inputRules"
+                        :rules="[rules.requiredRule]"
                       ></v-select>
                     </v-col>
 
@@ -80,7 +82,7 @@
                         v-model="postData.title"
                         label="Titel"
                         required
-                        :rules="inputRules"
+                        :rules="[rules.requiredRule, rules.lengthRule(60)]"
                       ></v-text-field>
                     </v-col>
                   </v-row>
@@ -93,7 +95,7 @@
                       v-model="postData.content"
                       row-height="40vh"
                       required
-                      :rules="inputRules"
+                      :rules="[rules.requiredRule]"
                     ></v-textarea>
                   </v-row>
 
@@ -118,7 +120,18 @@ export default {
       cols: 12,
       smallCols: 6,
       mediumCols: 4,
-      inputRules: [(v) => !!v || "Inhalt fehlt"],
+      rules: {
+        requiredRule: (v) => !!v || "Inhalt fehlt",
+        lengthRule(length) {
+          return (v) =>
+            v.length <= length || `Max. ${length} Buchstaben erlaubt`;
+        },
+        emailRule: (v) => {
+          const pattern = /^\S+@\S+$/; // @ sign preceded and followed by one or more whitespaces characters
+          return pattern.test(v) || "Invalid e-mail.";
+        },
+      },
+
       postData: {
         // author: "",
         firstName: "",
