@@ -24,9 +24,7 @@
           </v-container>
 
           <v-card-title>
-            <span v-if="this.currentPost" class="text-h5"
-              >Beitrag Bearbeiten</span
-            >
+            <span v-if="currentPost" class="text-h5">Beitrag Bearbeiten</span>
             <span v-else class="text-h5">Neuer Beitrag</span>
           </v-card-title>
           <v-card-text>
@@ -45,7 +43,7 @@
                       <v-text-field
                         v-model="postData.firstName"
                         label="Vorname"
-                        required
+                        counter="10"
                         :rules="[rules.requiredRule, rules.lengthRule(10)]"
                       ></v-text-field>
                     </v-col>
@@ -54,6 +52,7 @@
                       <v-text-field
                         v-model="postData.middleName"
                         label="Mittelname"
+                        counter="10"
                         :rules="[rules.lengthRule(10)]"
                       ></v-text-field>
                     </v-col>
@@ -62,14 +61,15 @@
                       <v-text-field
                         v-model="postData.lastName"
                         label="Nachname"
+                        counter="10"
                         :rules="[rules.lengthRule(10)]"
                       ></v-text-field>
                     </v-col>
 
                     <v-col cols="12" sm="6">
                       <v-text-field
-                        type="email"
                         v-model="postData.email"
+                        type="email"
                         label="E-Mail"
                         :rules="[rules.requiredRule, rules.emailRule]"
                       ></v-text-field>
@@ -79,10 +79,9 @@
                   <v-row>
                     <v-col cols="12" sm="4">
                       <v-select
+                        v-model="postData.category"
                         :items="categories"
                         label="Kategorie"
-                        v-model="postData.category"
-                        required
                         :rules="[rules.requiredRule]"
                       ></v-select>
                     </v-col>
@@ -91,7 +90,7 @@
                       <v-text-field
                         v-model="postData.title"
                         label="Titel"
-                        required
+                        counter="60"
                         :rules="[rules.requiredRule, rules.lengthRule(60)]"
                       ></v-text-field>
                     </v-col>
@@ -99,12 +98,11 @@
 
                   <v-row>
                     <v-textarea
+                      v-model="postData.content"
                       label="Inhalt"
                       outlined
                       auto-grow
-                      v-model="postData.content"
                       row-height="40vh"
-                      required
                       :rules="[rules.requiredRule]"
                     ></v-textarea>
                   </v-row>
@@ -137,8 +135,8 @@ export default {
             !v || v.length <= length || `Max. ${length} Buchstaben erlaubt`;
         },
         emailRule: (v) => {
-          const pattern = /^\S+@\S+$/; // @ sign preceded and followed by one or more whitespaces characters
-          return pattern.test(v) || "Invalid e-mail.";
+          const pattern = /^\S+@\S+$/; // @ sign preceded and followed by one or more non-whitespace characters
+          return pattern.test(v) || "E-Mail ungültig.";
         },
       },
 
