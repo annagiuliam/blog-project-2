@@ -14,7 +14,11 @@
           @input="updateFilters"
         />
       </v-col>
-      <v-col :cols="cols" :sm="smallCols" :md="mediumCols">
+      <v-col
+        :cols="cols"
+        :sm="smallCols"
+        :md="mediumCols"
+      >
         <v-text-field
           v-model="filters.searchTerm"
           clearable
@@ -51,41 +55,41 @@
 </template>
 
 <script>
-import SquareBtn from "./SquareBtn.vue";
+import SquareBtn from './SquareBtn.vue'
 export default {
-  name: "Filters",
+  name: 'Filters',
   components: { SquareBtn },
-  data() {
+  data () {
     return {
       cols: 12,
       smallCols: 6,
       mediumCols: 4,
       filters: {
-        category: "",
+        category: '',
         date: false,
-        searchTerm: "",
-      },
-    };
+        searchTerm: ''
+      }
+    }
   },
   computed: {
-    categories() {
-      return this.$store.state.categories;
-    },
+    categories () {
+      return this.$store.state.categories
+    }
   },
   methods: {
-    updateFilters() {
-      const finalFilters = { ...this.filters };
-      this.$emit("updateFilters", finalFilters);
+    updateFilters () {
+      const finalFilters = { ...this.filters }
+      this.$emit('updateFilters', finalFilters)
     },
-    sortByDate() {
-      this.filters.date = !this.filters.date;
-      this.updateFilters();
+    sortByDate () {
+      this.filters.date = !this.filters.date
+      this.updateFilters()
     },
-    deleteAllPosts() {
-      this.$store.dispatch("deleteAllPosts");
-    },
-  },
-};
+    deleteAllPosts () {
+      this.$store.dispatch('deleteAllPosts')
+    }
+  }
+}
 </script>
 
 <style>

@@ -16,21 +16,21 @@
 </template>
 
 <script>
-import PostContent from "./../components/PostContent";
-import GoBackBtn from "./../components/GoBackBtn.vue";
+import PostContent from './../components/PostContent'
+import GoBackBtn from './../components/GoBackBtn.vue'
 
 export default {
-  name: "PostPage",
+  name: 'PostPage',
   components: { PostContent, GoBackBtn },
   props: {
-    postId: { type: String, required: true },
+    postId: { type: String, required: true }
   },
   computed: {
-    post() {
-      return this.$store.state.posts.find((post) => post.id === this.postId);
-    },
-  },
-};
+    post () {
+      return this.$store.state.posts.find((post) => post.id === this.postId)
+    }
+  }
+}
 </script>
 
 <style></style>

@@ -41,64 +41,64 @@
 </template>
 
 <script>
-import PostTile from "./../components/PostTile.vue";
-import Filters from "./../components/Filters.vue";
-import SquareBtn from "./../components/SquareBtn.vue";
+import PostTile from './../components/PostTile.vue'
+import Filters from './../components/Filters.vue'
+import SquareBtn from './../components/SquareBtn.vue'
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
     Filters,
     PostTile,
-    SquareBtn,
+    SquareBtn
   },
-  data() {
+  data () {
     return {
-      filters: null,
-    };
+      filters: null
+    }
   },
   computed: {
-    posts() {
-      return this.$store.state.posts;
+    posts () {
+      return this.$store.state.posts
     },
-    filteredPosts() {
-      return this.filterPosts();
-    },
+    filteredPosts () {
+      return this.filterPosts()
+    }
   },
   methods: {
-    openInputDialog() {
-      this.$store.dispatch("openInputDialog");
+    openInputDialog () {
+      this.$store.dispatch('openInputDialog')
     },
 
-    updateFilters(finalFilters) {
-      this.filters = { ...finalFilters };
-      this.filterPosts();
+    updateFilters (finalFilters) {
+      this.filters = { ...finalFilters }
+      this.filterPosts()
     },
-    filterPosts() {
-      let tempPosts = [...this.posts];
+    filterPosts () {
+      let tempPosts = [...this.posts]
       if (this.filters) {
         if (this.filters.category) {
           tempPosts = tempPosts.filter(
             (post) => post.category === this.filters.category
-          );
+          )
         }
         if (this.filters.searchTerm) {
           tempPosts = tempPosts.filter((post) => {
-            const searchPara = ["title", "author", "content"];
+            const searchPara = ['title', 'author', 'content']
             return searchPara.some((para) =>
               post[para]
                 .toLowerCase()
                 .includes(this.filters.searchTerm.toLowerCase())
-            );
-          });
+            )
+          })
         }
         if (this.filters.date) {
-          tempPosts.sort((a, b) => b.creationDate - a.creationDate);
+          tempPosts.sort((a, b) => b.creationDate - a.creationDate)
         }
       }
-      return tempPosts;
-    },
-  },
-};
+      return tempPosts
+    }
+  }
+}
 </script>
 
 <style></style>

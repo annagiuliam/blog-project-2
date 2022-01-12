@@ -151,97 +151,97 @@
 
 <script>
 export default {
-  name: "InputDialog",
-  data() {
+  name: 'InputDialog',
+  data () {
     return {
       cols: 12,
       smallCols: 6,
       mediumCols: 4,
       rules: {
-        requiredRule: (v) => !!v || "Inhalt fehlt",
-        lengthRule(length) {
+        requiredRule: (v) => !!v || 'Inhalt fehlt',
+        lengthRule (length) {
           return (v) =>
-            !v || v.length <= length || `Max. ${length} Buchstaben erlaubt`;
+            !v || v.length <= length || `Max. ${length} Buchstaben erlaubt`
         },
         emailRule: (v) => {
-          const pattern = /^\S+@\S+$/; // @ sign preceded and followed by one or more non-whitespace characters
-          return pattern.test(v) || "E-Mail ungültig.";
-        },
+          const pattern = /^\S+@\S+$/ // @ sign preceded and followed by one or more non-whitespace characters
+          return pattern.test(v) || 'E-Mail ungültig.'
+        }
       },
 
       postData: {
         // author: "",
-        firstName: "",
-        middleName: "",
-        lastName: "",
-        email: "",
-        category: "",
-        title: "",
-        content: "",
+        firstName: '',
+        middleName: '',
+        lastName: '',
+        email: '',
+        category: '',
+        title: '',
+        content: '',
         // these are not connected to the form with v-model
-        creationDate: "",
-        id: "",
-      },
-    };
+        creationDate: '',
+        id: ''
+      }
+    }
   },
 
   computed: {
-    categories() {
-      return this.$store.state.categories;
+    categories () {
+      return this.$store.state.categories
     },
-    dialog() {
-      return this.$store.state.inputDialog;
+    dialog () {
+      return this.$store.state.inputDialog
     },
-    currentPost() {
-      return this.$store.state.currentPost;
-    },
+    currentPost () {
+      return this.$store.state.currentPost
+    }
   },
   watch: {
-    currentPost(newVal) {
+    currentPost (newVal) {
       if (newVal && this.$store.state.inputDialog) {
-        this.postData = { ...newVal };
+        this.postData = { ...newVal }
       } else {
-        Object.keys(this.postData).forEach((ele) => (this.postData[ele] = ""));
+        Object.keys(this.postData).forEach((ele) => (this.postData[ele] = ''))
       }
-      console.log(this.postData);
-    },
+      console.log(this.postData)
+    }
   },
   methods: {
-    setPostId() {
+    setPostId () {
       this.postData.id =
         this.postData.firstName.slice(0, 1) +
         this.postData.firstName.slice(-1) +
-        Date.now();
+        Date.now()
     },
-    setDate() {
-      this.postData.creationDate = new Date();
+    setDate () {
+      this.postData.creationDate = new Date()
     },
-    sendMessage() {
-      const formValid = this.$refs.form.validate();
+    sendMessage () {
+      const formValid = this.$refs.form.validate()
       if (formValid) {
-        let finalData;
+        let finalData
         if (this.$store.state.currentPost) {
-          finalData = { ...this.postData };
-          this.$store.dispatch("editPost", finalData);
-          this.$store.dispatch("clearCurrentPost");
+          finalData = { ...this.postData }
+          this.$store.dispatch('editPost', finalData)
+          this.$store.dispatch('clearCurrentPost')
         } else {
           // it is a new post and you need to set date and id
-          this.setPostId();
-          this.setDate();
-          finalData = { ...this.postData };
-          this.$store.dispatch("addNewPost", finalData);
-          console.log(finalData);
+          this.setPostId()
+          this.setDate()
+          finalData = { ...this.postData }
+          this.$store.dispatch('addNewPost', finalData)
+          console.log(finalData)
         }
-        this.closeInputDialog();
+        this.closeInputDialog()
       }
     },
-    closeInputDialog() {
-      this.$store.dispatch("closeInputDialog");
-      this.$store.dispatch("clearCurrentPost");
-      this.$refs.form.reset();
-    },
-  },
-};
+    closeInputDialog () {
+      this.$store.dispatch('closeInputDialog')
+      this.$store.dispatch('clearCurrentPost')
+      this.$refs.form.reset()
+    }
+  }
+}
 </script>
 
 <style></style>

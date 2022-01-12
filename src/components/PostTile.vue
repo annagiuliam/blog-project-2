@@ -15,24 +15,24 @@
 </template>
 
 <script>
-import PostContent from "./PostContent.vue";
-import SquareBtn from "./SquareBtn.vue";
+import PostContent from './PostContent.vue'
+import SquareBtn from './SquareBtn.vue'
 export default {
-  name: "PostTile",
+  name: 'PostTile',
   components: {
     PostContent,
-    SquareBtn,
+    SquareBtn
   },
-  props: ["post", "elip"],
+  props: ['post', 'elip'],
   methods: {
-    goToPost() {
+    goToPost () {
       this.$router.push({
-        name: "post-page",
-        params: { postId: this.post.id },
-      });
-    },
-  },
-};
+        name: 'post-page',
+        params: { postId: this.post.id }
+      })
+    }
+  }
+}
 </script>
 
 <style></style>

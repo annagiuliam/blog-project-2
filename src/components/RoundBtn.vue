@@ -18,15 +18,15 @@
   </div>
 </template>
 <script>
-import Tooltip from "./Tooltip.vue";
+import Tooltip from './Tooltip.vue'
 
 export default {
   components: { Tooltip },
-  props: ["tooltipText"],
-  data() {
+  props: ['tooltipText'],
+  data () {
     return {
-      showTooltip: false,
-    };
-  },
-};
+      showTooltip: false
+    }
+  }
+}
 </script>

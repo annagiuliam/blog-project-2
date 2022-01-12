@@ -1,20 +1,20 @@
-import Vue from "vue";
-import Router from "vue-router";
+import Vue from 'vue'
+import Router from 'vue-router'
 
-import Home from "./../views/Home";
+import Home from './../views/Home'
 
-Vue.use(Router);
+Vue.use(Router)
 
 export default new Router({
-  mode: "history",
+  mode: 'history',
   routes: [
-    { path: "/", name: "home", component: Home },
+    { path: '/', name: 'home', component: Home },
     {
-      path: "/post-page/:postId",
-      name: "post-page",
+      path: '/post-page/:postId',
+      name: 'post-page',
       component: () =>
-        import(/* webpackChunkName: 'post-page'*/ "./../views/PostPage"),
-      props: true,
-    },
-  ],
-});
+        import(/* webpackChunkName: 'post-page' */ './../views/PostPage'),
+      props: true
+    }
+  ]
+})

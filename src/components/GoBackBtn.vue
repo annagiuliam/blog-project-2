@@ -14,11 +14,11 @@
 
 <script>
 export default {
-  name: "GoBackBtn",
+  name: 'GoBackBtn',
   methods: {
-    goBack() {
-      return this.$router.back();
-    },
-  },
-};
+    goBack () {
+      return this.$router.back()
+    }
+  }
+}
 </script>

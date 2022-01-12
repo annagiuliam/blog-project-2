@@ -50,65 +50,65 @@
 </template>
 
 <script>
-import RoundBtn from "./RoundBtn.vue";
+import RoundBtn from './RoundBtn.vue'
 
 export default {
-  name: "PostContent",
+  name: 'PostContent',
   components: { RoundBtn },
   props: {
     post: {
       type: Object,
       default: function () {
-        return {};
-      },
+        return {}
+      }
     },
-    elip: Boolean,
+    elip: Boolean
   },
-  data() {
+  data () {
     return {
-      dateOptions: { year: "numeric", month: "long", day: "numeric" },
-    };
+      dateOptions: { year: 'numeric', month: 'long', day: 'numeric' }
+    }
   },
   computed: {
-    formattedDate() {
+    formattedDate () {
       return this.displayedPost.creationDate.toLocaleDateString(
         undefined,
         this.dateOptions
-      );
+      )
     },
-    textClass() {
-      let className = this.elip ? "text-elip" : "";
-      return className;
+    textClass () {
+      const className = this.elip ? 'text-elip' : ''
+      return className
     },
-    cathegoryFontSize() {
-      let className = this.elip ? "text-overline" : "cat-font-size";
-      return className;
+    cathegoryFontSize () {
+      const className = this.elip ? 'text-overline' : 'cat-font-size'
+      return className
     },
-    currentPost() {
-      return this.$store.state.currentPost;
+    currentPost () {
+      return this.$store.state.currentPost
     },
-    displayedPost() {
-      return this.post ? this.post : this.currentPost;
+    displayedPost () {
+      return this.post ? this.post : this.currentPost
     },
-    fullName() {
-      return `${this.displayedPost.firstName} ${this.displayedPost.middleName} ${this.displayedPost.lastName}`.trim();
-    },
+    fullName () {
+      return `${this.displayedPost.firstName} ${this.displayedPost.middleName} ${this.displayedPost.lastName}`.trim()
+    }
   },
   methods: {
-    deletePost() {
-      this.$store.dispatch("deletePost", this.displayedPost);
+    deletePost () {
+      this.$store.dispatch('deletePost', this.displayedPost)
 
-      if (this.$route.name === "post-page") {
-        this.$router.push({ name: "home" });
+      if (this.$route.name === 'post-page') {
+        this.$router.push({ name: 'home' })
       }
     },
 
-    editPost() {
-      this.$store.dispatch("updateCurrentPost", this.displayedPost);
-      this.$store.dispatch("openInputDialog");
-    },
-  },
-};
+    editPost () {
+      this.$store.dispatch('updateCurrentPost', this.displayedPost)
+      this.$store.dispatch('openInputDialog')
+    }
+  }
+}
 </script>
 
 <style>

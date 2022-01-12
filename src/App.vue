@@ -8,14 +8,14 @@
 </template>
 
 <script>
-import InputDialog from "./components/InputDialog.vue";
+import InputDialog from './components/InputDialog.vue'
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
-    InputDialog,
-  },
-};
+    InputDialog
+  }
+}
 </script>
 <style>
 .fade-enter-active {
