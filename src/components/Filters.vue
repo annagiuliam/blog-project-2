@@ -1,23 +1,31 @@
 <template>
   <v-container mb-6>
     <v-row class="mb-4 d-flex wrap justify-center align-center">
-      <v-col :cols="cols" :sm="smallCols" :md="mediumCols">
+      <v-col
+        :cols="cols"
+        :sm="smallCols"
+        :md="mediumCols"
+      >
         <v-select
           v-model="filters.category"
-          @input="updateFilters"
           :items="categories"
           label="Nach Kategorie Sortieren"
           clearable
-        ></v-select>
+          @input="updateFilters"
+        />
       </v-col>
-      <v-col :cols="cols" :sm="smallCols" :md="mediumCols">
+      <v-col
+        :cols="cols"
+        :sm="smallCols"
+        :md="mediumCols"
+      >
         <v-text-field
           v-model="filters.searchTerm"
-          @input="updateFilters"
           clearable
           label="Begriff Suchen"
           append-icon="mdi-search"
-        ></v-text-field>
+          @input="updateFilters"
+        />
       </v-col>
       <v-col
         class="d-flex justify-center"
@@ -28,16 +36,20 @@
         <v-btn
           text
           color="rgba(0, 0, 0, 0.6)"
-          @click="sortByDate"
           class="custom-btn"
+          @click="sortByDate"
         >
-          <v-icon class="mr-2">mdi-calendar-month-outline</v-icon>
+          <v-icon class="mr-2">
+            mdi-calendar-month-outline
+          </v-icon>
           Nach Datum Sortieren
         </v-btn>
       </v-col>
     </v-row>
     <v-row>
-      <SquareBtn @click="deleteAllPosts">Alle Beiträge löschen</SquareBtn>
+      <SquareBtn @click="deleteAllPosts">
+        Alle Beiträge löschen
+      </SquareBtn>
     </v-row>
   </v-container>
 </template>

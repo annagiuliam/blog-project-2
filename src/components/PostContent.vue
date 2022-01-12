@@ -9,10 +9,10 @@
             </div></v-col
           >
           <v-col class="d-flex justify-end align-center pa-1 mr-1">
-            <RoundBtn @click="deletePost" tooltipText="löschen">
+            <RoundBtn tooltip-text="löschen" @click="deletePost">
               <v-icon>mdi-delete-outline</v-icon>
             </RoundBtn>
-            <RoundBtn @click="editPost" tooltipText="bearbeiten">
+            <RoundBtn tooltip-text="bearbeiten" @click="editPost">
               <v-icon>mdi-pencil</v-icon>
             </RoundBtn>
           </v-col>
@@ -40,14 +40,22 @@
 import RoundBtn from "./RoundBtn.vue";
 
 export default {
-  components: { RoundBtn },
   name: "PostContent",
+  components: { RoundBtn },
+  props: {
+    post: {
+      type: Object,
+      default: function () {
+        return {};
+      },
+    },
+    elip: Boolean,
+  },
   data() {
     return {
       dateOptions: { year: "numeric", month: "long", day: "numeric" },
     };
   },
-  props: ["post", "elip"],
   computed: {
     formattedDate() {
       return this.displayedPost.creationDate.toLocaleDateString(
