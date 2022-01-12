@@ -1,8 +1,15 @@
+/* eslint-disable vue/require-prop-types */
+/* eslint-disable vue/require-prop-types */
 <template>
   <v-card>
-    <PostContent :post="post" :elip="elip" />
+    <PostContent
+      :post="post"
+      :elip="elip"
+    />
     <v-row>
-      <SquareBtn @click="goToPost">lesen</SquareBtn>
+      <SquareBtn @click="goToPost">
+        lesen
+      </SquareBtn>
     </v-row>
   </v-card>
 </template>
@@ -12,11 +19,11 @@ import PostContent from "./PostContent.vue";
 import SquareBtn from "./SquareBtn.vue";
 export default {
   name: "PostTile",
-  props: ["post", "elip"],
   components: {
     PostContent,
     SquareBtn,
   },
+  props: ["post", "elip"],
   methods: {
     goToPost() {
       this.$router.push({

@@ -2,9 +2,13 @@
   <v-container>
     <GoBackBtn />
     <v-row class="mt-8">
-      <v-col class="mx-auto" cols="11" md="10">
+      <v-col
+        class="mx-auto"
+        cols="11"
+        md="10"
+      >
         <v-card min-width="250px">
-          <PostContent :post="this.post" />
+          <PostContent :post="post" />
         </v-card>
       </v-col>
     </v-row>
@@ -17,6 +21,7 @@ import GoBackBtn from "./../components/GoBackBtn.vue";
 
 export default {
   name: "PostPage",
+  components: { PostContent, GoBackBtn },
   props: {
     postId: { type: String, required: true },
   },
@@ -25,7 +30,6 @@ export default {
       return this.$store.state.posts.find((post) => post.id === this.postId);
     },
   },
-  components: { PostContent, GoBackBtn },
 };
 </script>
 

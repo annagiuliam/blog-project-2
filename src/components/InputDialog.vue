@@ -24,15 +24,25 @@
           </v-container>
 
           <v-card-title>
-            <span v-if="currentPost" class="text-h5">Beitrag Bearbeiten</span>
-            <span v-else class="text-h5">Neuer Beitrag</span>
+            <span
+              v-if="currentPost"
+              class="text-h5"
+            >Beitrag Bearbeiten</span>
+            <span
+              v-else
+              class="text-h5"
+            >Neuer Beitrag</span>
           </v-card-title>
           <v-card-text>
             <v-container>
               <v-form ref="form">
                 <v-container fluid>
                   <v-row align="center">
-                    <v-col :cols="cols" :sm="smallCols" :md="mediumCols">
+                    <v-col
+                      :cols="cols"
+                      :sm="smallCols"
+                      :md="mediumCols"
+                    >
                       <!-- <v-text-field
                         v-model="postData.author"
                         label="Authorenname"
@@ -45,54 +55,71 @@
                         label="Vorname"
                         counter="10"
                         :rules="[rules.requiredRule, rules.lengthRule(10)]"
-                      ></v-text-field>
+                      />
                     </v-col>
 
-                    <v-col :cols="cols" :sm="smallCols" :md="mediumCols">
+                    <v-col
+                      :cols="cols"
+                      :sm="smallCols"
+                      :md="mediumCols"
+                    >
                       <v-text-field
                         v-model="postData.middleName"
                         label="Mittelname"
                         counter="10"
                         :rules="[rules.lengthRule(10)]"
-                      ></v-text-field>
+                      />
                     </v-col>
 
-                    <v-col :cols="cols" :sm="smallCols" :md="mediumCols">
+                    <v-col
+                      :cols="cols"
+                      :sm="smallCols"
+                      :md="mediumCols"
+                    >
                       <v-text-field
                         v-model="postData.lastName"
                         label="Nachname"
                         counter="10"
                         :rules="[rules.lengthRule(10)]"
-                      ></v-text-field>
+                      />
                     </v-col>
 
-                    <v-col cols="12" sm="6">
+                    <v-col
+                      cols="12"
+                      sm="6"
+                    >
                       <v-text-field
                         v-model="postData.email"
                         type="email"
                         label="E-Mail"
                         :rules="[rules.requiredRule, rules.emailRule]"
-                      ></v-text-field>
+                      />
                     </v-col>
                   </v-row>
 
                   <v-row>
-                    <v-col cols="12" sm="4">
+                    <v-col
+                      cols="12"
+                      sm="4"
+                    >
                       <v-select
                         v-model="postData.category"
                         :items="categories"
                         label="Kategorie"
                         :rules="[rules.requiredRule]"
-                      ></v-select>
+                      />
                     </v-col>
 
-                    <v-col cols="12" sm="8">
+                    <v-col
+                      cols="12"
+                      sm="8"
+                    >
                       <v-text-field
                         v-model="postData.title"
                         label="Titel"
                         counter="60"
                         :rules="[rules.requiredRule, rules.lengthRule(60)]"
-                      ></v-text-field>
+                      />
                     </v-col>
                   </v-row>
 
@@ -104,11 +131,13 @@
                       auto-grow
                       row-height="40vh"
                       :rules="[rules.requiredRule]"
-                    ></v-textarea>
+                    />
                   </v-row>
 
                   <v-row justify="end">
-                    <v-btn @click="sendMessage">Speichern</v-btn>
+                    <v-btn @click="sendMessage">
+                      Speichern
+                    </v-btn>
                   </v-row>
                 </v-container>
               </v-form>

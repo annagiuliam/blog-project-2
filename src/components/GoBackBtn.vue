@@ -1,6 +1,12 @@
 <template>
   <v-row>
-    <v-btn outlined fab color="indigo" class="ma-2" @click="goBack">
+    <v-btn
+      outlined
+      fab
+      color="indigo"
+      class="ma-2"
+      @click="goBack"
+    >
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
   </v-row>

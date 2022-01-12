@@ -14,11 +14,7 @@
           @input="updateFilters"
         />
       </v-col>
-      <v-col
-        :cols="cols"
-        :sm="smallCols"
-        :md="mediumCols"
-      >
+      <v-col :cols="cols" :sm="smallCols" :md="mediumCols">
         <v-text-field
           v-model="filters.searchTerm"
           clearable

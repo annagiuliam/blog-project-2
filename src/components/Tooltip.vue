@@ -1,5 +1,7 @@
 <template>
-  <div class="tooltip"><slot /></div>
+  <div class="tooltip">
+    <slot />
+  </div>
 </template>
 
 <script>

@@ -9,19 +9,31 @@
       >
         Neuer Beitrag
       </v-btn> -->
-      <SquareBtn @click="openInputDialog">Neuer Beitrag</SquareBtn>
+      <SquareBtn @click="openInputDialog">
+        Neuer Beitrag
+      </SquareBtn>
       <div v-if="posts.length > 0">
         <Filters @updateFilters="updateFilters" />
       </div>
       <div v-else>
-        <h1 class="text-center">Es gibt noch keine Blogbeiträge</h1>
+        <h1 class="text-center">
+          Es gibt noch keine Blogbeiträge
+        </h1>
       </div>
     </v-container>
 
     <v-container class="mb-5">
       <v-row wrap>
-        <v-col cols="12" md="4" v-for="post in filteredPosts" :key="post.id">
-          <PostTile :post="post" :elip="true" />
+        <v-col
+          v-for="post in filteredPosts"
+          :key="post.id"
+          cols="12"
+          md="4"
+        >
+          <PostTile
+            :post="post"
+            :elip="true"
+          />
         </v-col>
       </v-row>
     </v-container>
@@ -34,15 +46,15 @@ import Filters from "./../components/Filters.vue";
 import SquareBtn from "./../components/SquareBtn.vue";
 export default {
   name: "Home",
-  data() {
-    return {
-      filters: null,
-    };
-  },
   components: {
     Filters,
     PostTile,
     SquareBtn,
+  },
+  data() {
+    return {
+      filters: null,
+    };
   },
   computed: {
     posts() {

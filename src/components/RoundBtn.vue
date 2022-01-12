@@ -1,6 +1,8 @@
 <template>
   <div style="position: relative">
-    <Tooltip v-if="showTooltip">{{ tooltipText }}</Tooltip>
+    <Tooltip v-if="showTooltip">
+      {{ tooltipText }}
+    </Tooltip>
     <v-btn
       outlined
       fab
@@ -19,12 +21,12 @@
 import Tooltip from "./Tooltip.vue";
 
 export default {
+  components: { Tooltip },
+  props: ["tooltipText"],
   data() {
     return {
       showTooltip: false,
     };
   },
-  props: ["tooltipText"],
-  components: { Tooltip },
 };
 </script>

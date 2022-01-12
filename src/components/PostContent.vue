@@ -4,15 +4,24 @@
       <v-list-item-content class="overflow-visible">
         <v-row class="d-flex justify-space-between align-center">
           <v-col>
-            <div class="mb-1" :class="cathegoryFontSize">
+            <div
+              class="mb-1"
+              :class="cathegoryFontSize"
+            >
               {{ displayedPost.category }}
-            </div></v-col
-          >
+            </div>
+          </v-col>
           <v-col class="d-flex justify-end align-center pa-1 mr-1">
-            <RoundBtn tooltip-text="löschen" @click="deletePost">
+            <RoundBtn
+              tooltip-text="löschen"
+              @click="deletePost"
+            >
               <v-icon>mdi-delete-outline</v-icon>
             </RoundBtn>
-            <RoundBtn tooltip-text="bearbeiten" @click="editPost">
+            <RoundBtn
+              tooltip-text="bearbeiten"
+              @click="editPost"
+            >
               <v-icon>mdi-pencil</v-icon>
             </RoundBtn>
           </v-col>
@@ -25,14 +34,18 @@
             <v-list-item-subtitle>{{ fullName }}</v-list-item-subtitle>
           </v-col>
           <v-col>
-            <v-list-item-subtitle class="text-right">{{
-              formattedDate
-            }}</v-list-item-subtitle>
+            <v-list-item-subtitle class="text-right">
+              {{
+                formattedDate
+              }}
+            </v-list-item-subtitle>
           </v-col>
         </v-row>
       </v-list-item-content>
     </v-list-item>
-    <v-card-text :class="textClass">{{ displayedPost.content }}</v-card-text>
+    <v-card-text :class="textClass">
+      {{ displayedPost.content }}
+    </v-card-text>
   </v-container>
 </template>
 
