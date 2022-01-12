@@ -39,14 +39,17 @@
       "node": true
     },
     "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended",
-      "@vue/prettier"
+      "plugin:vue/recommended",
+      "eslint:recommended"
     ],
+  "rules": {
+    "no-console": "error",
+    "vue/max-attributes-per-line" : "off"
+    
+  },
     "parserOptions": {
       "parser": "babel-eslint"
-    },
-    "rules": {}
+    }
   },
   "browserslist": [
     "> 1%",
