@@ -10,7 +10,7 @@
         Neuer Beitrag
       </v-btn> -->
       <SquareBtn @click="openInputDialog">
-        Neuer Beitrag
+        <translate>Neuer Beitrag</translate>
       </SquareBtn>
       <div v-if="posts.length > 0">
         <Filters @updateFilters="updateFilters" />

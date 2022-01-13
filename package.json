@@ -5,12 +5,17 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "gettext-extract" : "gettext-extract",
+    "extract-gettext-cli": "gettext-extract --attribute v-translate --output dictionary.pot $(find ./src/views -type f -name '*.vue')",
+    "xtract" : "./node_modules/.bin/gettext-extract --output dictionary.pot `find src -name '*.js' -o -name '*.vue'`"
   },
   "dependencies": {
     "core-js": "^3.6.5",
     "eslint-plugin-standard": "^5.0.0",
+    "gettext-extract": "^2.0.1",
     "vue": "^2.6.11",
+    "vue-gettext": "^2.1.12",
     "vue-router": "^3.5.3",
     "vuetify": "^2.4.0",
     "vuex": "^3.6.2"
@@ -23,6 +28,7 @@
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/eslint-config-standard": "^5.1.2",
     "babel-eslint": "^10.1.0",
+    "easygettext": "^2.17.0",
     "eslint": "^7.32.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.4",
@@ -51,7 +57,7 @@
       "@vue/standard"
     ],
     "rules": {
-      "no-console" : 0,
+      "no-console": 0,
       "vue/max-attributes-per-line": "warn",
       "vue/require-prop-types": "off",
       "vue/multi-word-component-names": "off"
