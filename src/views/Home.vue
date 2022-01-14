@@ -9,8 +9,20 @@
       >
         Neuer Beitrag
       </v-btn> -->
+      <select
+        v-model="$language.current"
+        name="language"
+      >
+        <option
+          v-for="(language, key) in $language.available"
+          :key="key"
+          :value="key"
+        >
+          {{ language }}
+        </option>
+      </select>
       <SquareBtn @click="openInputDialog">
-        <translate>Neuer Beitrag</translate>
+        <translate>New Post</translate>
       </SquareBtn>
       <div v-if="posts.length > 0">
         <Filters @updateFilters="updateFilters" />

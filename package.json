@@ -6,9 +6,9 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "gettext-extract" : "gettext-extract",
-    "extract-gettext-cli": "gettext-extract --attribute v-translate --output dictionary.pot $(find ./src/views -type f -name '*.vue')",
-    "xtract" : "./node_modules/.bin/gettext-extract --output dictionary.pot `find src -name '*.js' -o -name '*.vue'`"
+    "apply" : "find ./i18n -iname '*.po' -exec msgmerge \"{}\" ./i18n/dictionary.pot -U --no-location --no-fuzzy-matching --backup=none --no-wrap -s -v \\;",
+    "xtract" : "./node_modules/.bin/gettext-extract --output i18n/dictionary.pot `find src -name '*.js' -o -name '*.vue'`",
+    "po2json" : "./node_modules/.bin/gettext-compile --output i18n/parsed.json i18n/*.po"
   },
   "dependencies": {
     "core-js": "^3.6.5",

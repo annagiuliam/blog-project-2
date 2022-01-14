@@ -5,13 +5,13 @@ import { store } from './store/store'
 import router from './router'
 
 import GetTextPlugin from 'vue-gettext'
-import translations from './path/to/translations'
+import translations from './../i18n/parsed.json'
 
 Vue.use(GetTextPlugin, {
   availableLanguages: {
 
     en_US: 'American English',
-    de_DE: 'German'
+    de_DE: 'Deutsch'
   },
   defaultLanguage: 'de_DE',
   languageVmMixin: {
@@ -22,7 +22,7 @@ Vue.use(GetTextPlugin, {
     }
   },
   translations: translations,
-  silent: True
+  silent: true
 })
 
 Vue.config.productionTip = false
