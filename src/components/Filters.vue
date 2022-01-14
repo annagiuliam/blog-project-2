@@ -9,7 +9,7 @@
         <v-select
           v-model="filters.category"
           :items="categories"
-          label="Nach Kategorie Sortieren"
+          :label="$gettext('Sort by category')"
           clearable
           @input="updateFilters"
         />
@@ -22,7 +22,7 @@
         <v-text-field
           v-model="filters.searchTerm"
           clearable
-          label="Begriff Suchen"
+          :label="$gettext('Search term')"
           append-icon="mdi-search"
           @input="updateFilters"
         />
@@ -34,6 +34,7 @@
         :md="mediumCols"
       >
         <v-btn
+          v-translate
           text
           color="rgba(0, 0, 0, 0.6)"
           class="custom-btn"
@@ -42,13 +43,16 @@
           <v-icon class="mr-2">
             mdi-calendar-month-outline
           </v-icon>
-          Nach Datum Sortieren
+          Sort by date
         </v-btn>
       </v-col>
     </v-row>
     <v-row>
-      <SquareBtn @click="deleteAllPosts">
-        Alle Beiträge löschen
+      <SquareBtn
+        v-translate
+        @click="deleteAllPosts"
+      >
+        Delet all posts
       </SquareBtn>
     </v-row>
   </v-container>

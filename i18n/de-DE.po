@@ -5,14 +5,33 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid ""
+"<v-icon class=\"mr-2\">\n"
+"            mdi-calendar-month-outline\n"
+"          </v-icon>\n"
+"          Sort by date"
+msgstr ""
+
+msgid "Delet all posts"
+msgstr "Alle Beiträge löschen"
+
+msgid "Invalid e-mail."
+msgstr "E-Mail isy ungültig"
+
 msgid "New Post"
 msgstr "Neuer Beitrag"
 
-msgid "Test message"
-msgstr "Test Nachricht"
+msgid "Search term"
+msgstr "Begriff suchen"
+
+msgid "Sort by category"
+msgstr "Nach Kategorie sortieren"
 
 msgid "There are no blog posts"
 msgstr "Es gibt noch keine Blogbeiträge"
 
 msgid "Title"
 msgstr "Titel"
+
+#~ msgid "Test message"
+#~ msgstr "Test Nachricht"
