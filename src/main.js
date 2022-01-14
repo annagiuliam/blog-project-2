@@ -10,14 +10,17 @@ import translations from './../i18n/parsed.json'
 Vue.use(GetTextPlugin, {
   availableLanguages: {
 
-    'en-US': 'American English',
-    'de-DE': 'Deutsch'
+    'en-US': 'US',
+    'de-DE': 'DE'
   },
   defaultLanguage: 'de-DE',
   languageVmMixin: {
     computed: {
       currentKebabCase: function () {
         return this.current.toLowerCase().replace('_', '-')
+      },
+      codes () {
+        return this.$
       }
     }
   },
