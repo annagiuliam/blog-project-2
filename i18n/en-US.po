@@ -5,8 +5,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-
 msgid "New Post"
 msgstr "New Post"
 
+msgid "Test message"
+msgstr "Test Test"
 
+msgid "There are no blog posts"
+msgstr "There are no blog posts"
+
+msgid "Title"
+msgstr ""

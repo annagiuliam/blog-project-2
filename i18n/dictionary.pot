@@ -5,6 +5,18 @@ msgstr ""
 "Generated-By: easygettext\n"
 "Project-Id-Version: \n"
 
-#: src/views/Home.vue:12
+#: src/views/Home.vue:17
 msgid "New Post"
+msgstr ""
+
+#: src/views/Home.vue:27
+msgid "Test message"
+msgstr ""
+
+#: src/views/Home.vue:24
+msgid "There are no blog posts"
+msgstr ""
+
+#: src/components/InputDialog.vue:180
+msgid "Title"
 msgstr ""

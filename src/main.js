@@ -10,10 +10,10 @@ import translations from './../i18n/parsed.json'
 Vue.use(GetTextPlugin, {
   availableLanguages: {
 
-    en_US: 'American English',
-    de_DE: 'Deutsch'
+    'en-US': 'American English',
+    'de-DE': 'Deutsch'
   },
-  defaultLanguage: 'de_DE',
+  defaultLanguage: 'de-DE',
   languageVmMixin: {
     computed: {
       currentKebabCase: function () {

@@ -7,3 +7,12 @@ msgstr ""
 
 msgid "New Post"
 msgstr "Neuer Beitrag"
+
+msgid "Test message"
+msgstr "Test Nachricht"
+
+msgid "There are no blog posts"
+msgstr "Es gibt noch keine Blogbeiträge"
+
+msgid "Title"
+msgstr "Titel"

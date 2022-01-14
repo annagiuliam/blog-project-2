@@ -116,7 +116,7 @@
                     >
                       <v-text-field
                         v-model="postData.title"
-                        label="Titel"
+                        :label="$gettext('Title')"
                         counter="60"
                         :rules="[rules.requiredRule, rules.lengthRule(60)]"
                       />
@@ -165,7 +165,7 @@ export default {
         },
         emailRule: (v) => {
           const pattern = /^\S+@\S+$/ // @ sign preceded and followed by one or more non-whitespace characters
-          return pattern.test(v) || 'E-Mail ungültig.'
+          return pattern.test(v) || this.$gettext('Invalid e-mail.')
         }
       },
 

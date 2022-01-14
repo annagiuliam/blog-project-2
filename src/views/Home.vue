@@ -28,8 +28,17 @@
         <Filters @updateFilters="updateFilters" />
       </div>
       <div v-else>
-        <h1 class="text-center">
-          Es gibt noch keine Blogbeiträge
+        <h1
+          class="text-center"
+        >
+          <translate>There are no blog posts</translate>
+        </h1>
+        <!-- v-translate does not work -->
+        <h1
+          v-translate
+          class="text-center"
+        >
+          Test message
         </h1>
       </div>
     </v-container>
