@@ -24,14 +24,15 @@
           </v-container>
 
           <v-card-title>
+            <!-- always new post with translate element of v-translate -->
             <span
               v-if="currentPost"
               class="text-h5"
-            >Beitrag Bearbeiten</span>
+            >Edit Post</span>
             <span
               v-else
               class="text-h5"
-            >Neuer Beitrag</span>
+            >New Post</span>
           </v-card-title>
           <v-card-text>
             <v-container>
@@ -52,7 +53,7 @@
 
                       <v-text-field
                         v-model="postData.firstName"
-                        label="Vorname"
+                        :label="$gettext('First Name')"
                         counter="10"
                         :rules="[rules.requiredRule, rules.lengthRule(10)]"
                       />
@@ -65,7 +66,7 @@
                     >
                       <v-text-field
                         v-model="postData.middleName"
-                        label="Mittelname"
+                        :label="$gettext('Middle Name')"
                         counter="10"
                         :rules="[rules.lengthRule(10)]"
                       />
@@ -78,7 +79,7 @@
                     >
                       <v-text-field
                         v-model="postData.lastName"
-                        label="Nachname"
+                        :label="$gettext('Last Name')"
                         counter="10"
                         :rules="[rules.lengthRule(10)]"
                       />
@@ -91,7 +92,7 @@
                       <v-text-field
                         v-model="postData.email"
                         type="email"
-                        label="E-Mail"
+                        :label="$gettext('E-mail')"
                         :rules="[rules.requiredRule, rules.emailRule]"
                       />
                     </v-col>
@@ -105,7 +106,7 @@
                       <v-select
                         v-model="postData.category"
                         :items="categories"
-                        label="Kategorie"
+                        :label="$gettext('Category')"
                         :rules="[rules.requiredRule]"
                       />
                     </v-col>
@@ -126,7 +127,7 @@
                   <v-row>
                     <v-textarea
                       v-model="postData.content"
-                      label="Inhalt"
+                      :label="$gettext('Content')"
                       outlined
                       auto-grow
                       row-height="40vh"
@@ -135,8 +136,11 @@
                   </v-row>
 
                   <v-row justify="end">
-                    <v-btn @click="sendMessage">
-                      Speichern
+                    <!-- v-translate does not work -->
+                    <v-btn
+                      @click="sendMessage"
+                    >
+                      <translate>Save</translate>
                     </v-btn>
                   </v-row>
                 </v-container>
@@ -158,10 +162,12 @@ export default {
       smallCols: 6,
       mediumCols: 4,
       rules: {
-        requiredRule: (v) => !!v || 'Inhalt fehlt',
+        requiredRule: (v) => !!v || this.$gettext('Content missing'),
         lengthRule (length) {
           return (v) =>
-            !v || v.length <= length || `Max. ${length} Buchstaben erlaubt`
+            !v || v.length <= length || 'Max. number of characters reached'
+            // this does not work!!!
+          // !v || v.length <= length || this.$gettext('Max. number of characters reached')
         },
         emailRule: (v) => {
           const pattern = /^\S+@\S+$/ // @ sign preceded and followed by one or more non-whitespace characters
