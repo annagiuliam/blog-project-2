@@ -6,15 +6,17 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "xtract" : "./node_modules/.bin/gettext-extract --attribute v-translate --output i18n/dictionary.pot `find src -name '*.js' -o -name '*.vue'`",
-    "apply" : "find ./i18n -iname '*.po' -exec msgmerge \"{}\" ./i18n/dictionary.pot -U --no-location --no-fuzzy-matching --backup=none --no-wrap -s -v \\;",
-    "po2json" : "./node_modules/.bin/gettext-compile --output i18n/parsed.json i18n/*.po"
+    "xtract": "./node_modules/.bin/gettext-extract --attribute v-translate --output i18n/dictionary.pot `find src -name '*.js' -o -name '*.vue'`",
+    "apply": "find ./i18n -iname '*.po' -exec msgmerge \"{}\" ./i18n/dictionary.pot -U --no-location --no-fuzzy-matching --backup=none --no-wrap -s -v \\;",
+    "po2json": "./node_modules/.bin/gettext-compile --output i18n/parsed.json i18n/*.po"
   },
   "dependencies": {
     "core-js": "^3.6.5",
     "eslint-plugin-standard": "^5.0.0",
     "gettext-extract": "^2.0.1",
     "vue": "^2.6.11",
+    "vue-country-flag": "^2.3.2",
+    "vue-flagpack": "^1.0.1",
     "vue-gettext": "^2.1.12",
     "vue-router": "^3.5.3",
     "vuetify": "^2.4.0",
