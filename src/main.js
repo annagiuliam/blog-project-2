@@ -18,10 +18,8 @@ Vue.use(GetTextPlugin, {
     computed: {
       currentKebabCase: function () {
         return this.current.toLowerCase().replace('_', '-')
-      },
-      codes () {
-        return this.$
       }
+
     }
   },
   translations: translations,
