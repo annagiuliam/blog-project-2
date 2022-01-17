@@ -1,7 +1,10 @@
 <template>
   <v-container>
     <v-list-item three-line>
-      <v-list-item-content class="overflow-visible">
+      <v-list-item-content
+        class="overflow-visible"
+        style="max-width: 100%"
+      >
         <v-row class="d-flex justify-space-between align-center">
           <v-col>
             <div
@@ -26,7 +29,9 @@
             </RoundBtn>
           </v-col>
         </v-row>
-        <v-list-item-title class="text-h5 mb-1">
+        <v-list-item-title
+          class="text-h5 mb-1"
+        >
           {{ displayedPost.title }}
         </v-list-item-title>
         <v-row justify="space-between">
