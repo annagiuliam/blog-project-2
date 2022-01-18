@@ -1,6 +1,9 @@
 <template>
   <div style="position: relative">
-    <Tooltip v-if="showTooltip">
+    <Tooltip
+      v-if="showTooltip"
+      class="location"
+    >
       {{ tooltipText }}
     </Tooltip>
     <v-btn
@@ -30,3 +33,11 @@ export default {
   }
 }
 </script>
+
+<style>
+.location {
+  top: -20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+</style>
