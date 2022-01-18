@@ -81,7 +81,7 @@ export default {
     },
     formattedDate () {
       return this.displayedPost.creationDate.toLocaleDateString(
-        undefined,
+        this.$language.current,
         this.dateOptions
       )
     },
