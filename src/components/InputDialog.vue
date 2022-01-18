@@ -10,16 +10,7 @@
         <v-card min-height="90vh">
           <v-container>
             <v-row justify="end">
-              <v-btn
-                class="ma-2"
-                outlined
-                fab
-                small
-                color="indigo"
-                @click="closeInputDialog"
-              >
-                <v-icon>mdi-close</v-icon>
-              </v-btn>
+              <CloseBtn @click="closeInputDialog" />
             </v-row>
           </v-container>
 
@@ -160,8 +151,10 @@
 
 <script>
 import categoriesGettext from './../helpers/categoriesGettext'
+import CloseBtn from './CloseBtn.vue'
 export default {
   name: 'InputDialog',
+  components: { CloseBtn },
   data () {
     return {
       cols: 12,
@@ -196,7 +189,6 @@ export default {
   },
 
   computed: {
-
     categories () {
       return Object.keys(this.categoriesGettext)
     },
