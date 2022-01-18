@@ -1,53 +1,40 @@
 
 <template>
   <div>
-    <!-- <v-select
-      v-model="current"
-      :items="availableLanguages"
-      item-text="languageIcon"
-      label="Outlined style"
-      dense
-      outlined
-    >
-      <template #item="{ item }">
-        <Flag :code="item.code" />
-      </template>
-    </v-select> -->
-    <select
+    <v-select
       v-model="$language.current"
-      name="language"
+      :items="languagesKeys"
     >
-      <option
-        v-for="(language, key) in $language.available"
-        :key="key"
-        :value="key"
-      >
-        {{ language }}
-      </option>
-    </select>
+      <template #item="{item}">
+        <Flag
+          :code="languagesObj[item].code"
+          style="margin-right: 1rem"
+        />
+        {{ '  ' + languagesObj[item].name }}
+      </template>
+      <template #selection="{item}">
+        <Flag
+          :code="languagesObj[item].code"
+          style="margin-right: 1rem"
+        />
+        {{ '  ' + languagesObj[item].name }}
+      </template>
+    </v-select>
   </div>
 </template>
 <script>
 
 export default {
 
-  data () {
-    return {
-      current: this.$language.current
-    //   availableLanguages: Object.keys(this.$language.available).map(key => this.$language.available[key]),
-    //   defaultLanguage: Object.keys(this.$language.available).find(key => key === this.language.current)
-    }
-  },
   computed: {
-
-    availableLanguages () {
-      return Object.keys(this.$language.available).map(key => this.$language.available[key])
+    languagesKeys () {
+      return Object.keys(this.$language.available)
+    },
+    languagesObj () {
+      return this.$language.available
     }
-  },
-  created () {
-    console.log(this.$language)
-    console.log(this.availableLanguages)
   }
+
 }
 </script>
 

@@ -1,26 +1,8 @@
 <template>
   <div>
     <v-container class="d-flex flex-column justify-center">
-      <!-- <v-btn
-        class="my-9 mx-auto"
-        outlined
-        color="indigo"
-        @click="openInputDialog"
-      >
-        Neuer Beitrag
-      </v-btn> -->
-      <select
-        v-model="$language.current"
-        name="language"
-      >
-        <option
-          v-for="(language, key) in $language.available"
-          :key="key"
-          :value="key"
-        >
-          {{ language }}
-        </option>
-      </select>
+      <LanguageSelector style="width: 200px" />
+
       <SquareBtn @click="openInputDialog">
         <translate>New Post</translate>
       </SquareBtn>
@@ -58,12 +40,14 @@
 import PostTile from './../components/PostTile.vue'
 import Filters from './../components/Filters.vue'
 import SquareBtn from './../components/SquareBtn.vue'
+import LanguageSelector from './../components/LanguageSelector.vue'
 export default {
   name: 'Home',
   components: {
     Filters,
     PostTile,
-    SquareBtn
+    SquareBtn,
+    LanguageSelector
   },
   data () {
     return {
