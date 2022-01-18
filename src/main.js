@@ -7,11 +7,16 @@ import router from './router'
 import GetTextPlugin from 'vue-gettext'
 import translations from './../i18n/parsed.json'
 
+import Flag from 'vue-flagpack'
+
+Vue.use(Flag, {
+  name: 'Flag'
+})
+
 Vue.use(GetTextPlugin, {
   availableLanguages: {
-
-    'en-US': 'US',
-    'de-DE': 'DE'
+    'en-US': { name: 'American English', code: 'US' },
+    'de-DE': { name: 'Deutsch', code: 'DE' }
   },
   defaultLanguage: 'de-DE',
   languageVmMixin: {
