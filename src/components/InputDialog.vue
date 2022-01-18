@@ -24,15 +24,14 @@
           </v-container>
 
           <v-card-title>
-            <!-- always new post with translate element of v-translate -->
             <span
               v-if="currentPost"
               class="text-h5"
-            >Edit Post</span>
+            >{{ $gettext('Edit Post') }}</span>
             <span
               v-else
               class="text-h5"
-            >New Post</span>
+            >{{ $gettext('New Post') }}</span>
           </v-card-title>
           <v-card-text>
             <v-container>
@@ -108,7 +107,14 @@
                         :items="categories"
                         :label="$gettext('Category')"
                         :rules="[rules.requiredRule]"
-                      />
+                      >
+                        <template #item="{item}">
+                          {{ categoriesGettext[item] }}
+                        </template>
+                        <template #selection="{item}">
+                          {{ categoriesGettext[item] }}
+                        </template>
+                      </v-select>
                     </v-col>
 
                     <v-col
@@ -136,11 +142,10 @@
                   </v-row>
 
                   <v-row justify="end">
-                    <!-- v-translate does not work -->
                     <v-btn
                       @click="sendMessage"
                     >
-                      <translate>Save</translate>
+                      {{ $gettext('Save') }}
                     </v-btn>
                   </v-row>
                 </v-container>
@@ -154,6 +159,7 @@
 </template>
 
 <script>
+import categoriesGettext from './../helpers/categoriesGettext'
 export default {
   name: 'InputDialog',
   data () {
@@ -163,11 +169,9 @@ export default {
       mediumCols: 4,
       rules: {
         requiredRule: (v) => !!v || this.$gettext('Content missing'),
-        lengthRule (length) {
+        lengthRule: (length) => {
           return (v) =>
-            !v || v.length <= length || 'Max. number of characters reached'
-            // this does not work!!!
-          // !v || v.length <= length || this.$gettext('Max. number of characters reached')
+            !v || v.length <= length || this.$gettext('Max. number of characters reached')
         },
         emailRule: (v) => {
           const pattern = /^\S+@\S+$/ // @ sign preceded and followed by one or more non-whitespace characters
@@ -192,8 +196,12 @@ export default {
   },
 
   computed: {
+
     categories () {
-      return this.$store.state.categories
+      return Object.keys(this.categoriesGettext)
+    },
+    categoriesGettext () {
+      return categoriesGettext(this.$gettext)
     },
     dialog () {
       return this.$store.state.inputDialog

@@ -8,7 +8,7 @@
     />
     <v-row>
       <SquareBtn @click="goToPost">
-        lesen
+        {{ $gettext('read') }}
       </SquareBtn>
     </v-row>
   </v-card>

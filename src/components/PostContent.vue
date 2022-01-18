@@ -11,18 +11,18 @@
               class="mb-1"
               :class="cathegoryFontSize"
             >
-              {{ displayedPost.category }}
+              {{ translatedCategories[displayedPost.category] }}
             </div>
           </v-col>
           <v-col class="d-flex justify-end align-center pa-1 mr-1">
             <RoundBtn
-              tooltip-text="löschen"
+              :tooltip-text="$gettext('delete')"
               @click="deletePost"
             >
               <v-icon>mdi-delete-outline</v-icon>
             </RoundBtn>
             <RoundBtn
-              tooltip-text="bearbeiten"
+              :tooltip-text="$gettext('edit')"
               @click="editPost"
             >
               <v-icon>mdi-pencil</v-icon>
@@ -56,6 +56,7 @@
 
 <script>
 import RoundBtn from './RoundBtn.vue'
+import categoriesGettex from './../helpers/categoriesGettext'
 
 export default {
   name: 'PostContent',
@@ -75,6 +76,9 @@ export default {
     }
   },
   computed: {
+    translatedCategories () {
+      return categoriesGettex(this.$gettext)
+    },
     formattedDate () {
       return this.displayedPost.creationDate.toLocaleDateString(
         undefined,

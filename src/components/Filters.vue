@@ -34,7 +34,6 @@
         :md="mediumCols"
       >
         <v-btn
-          v-translate
           text
           color="rgba(0, 0, 0, 0.6)"
           class="custom-btn"
@@ -43,16 +42,15 @@
           <v-icon class="mr-2">
             mdi-calendar-month-outline
           </v-icon>
-          Sort by date
+          {{ $gettext('Sort by date') }}
         </v-btn>
       </v-col>
     </v-row>
     <v-row>
       <SquareBtn
-        v-translate
         @click="deleteAllPosts"
       >
-        Delet all posts
+        {{ $gettext('Delete all posts') }}
       </SquareBtn>
     </v-row>
   </v-container>
@@ -60,6 +58,7 @@
 
 <script>
 import SquareBtn from './SquareBtn.vue'
+import categoriesGettext from './../helpers/categoriesGettext'
 export default {
   name: 'Filters',
   components: { SquareBtn },
@@ -77,7 +76,10 @@ export default {
   },
   computed: {
     categories () {
-      return this.$store.state.categories
+      return Object.values(this.categoriesGettext)
+    },
+    categoriesGettext () {
+      return categoriesGettext(this.$gettext)
     }
   },
   methods: {
