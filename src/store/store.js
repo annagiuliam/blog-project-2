@@ -8,7 +8,6 @@ export const store = new Vuex.Store({
   state: {
     currentPost: null,
     posts: [],
-    categories: ['Politik', 'Natur', 'Aktuell', 'Umwelt'],
     inputDialog: false
   },
 
