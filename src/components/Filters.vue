@@ -31,7 +31,7 @@
         class="d-flex justify-center"
         :cols="cols"
         :sm="smallCols"
-        :md="mediumCols"
+        :md="3"
       >
         <v-btn
           text
