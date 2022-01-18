@@ -4,7 +4,7 @@
       <LanguageSelector style="width: 200px" />
 
       <SquareBtn @click="openInputDialog">
-        <translate>New Post</translate>
+        {{ $gettext('New Post') }}
       </SquareBtn>
       <div v-if="posts.length > 0">
         <Filters @updateFilters="updateFilters" />
@@ -13,7 +13,7 @@
         <h1
           class="text-center"
         >
-          <translate>There are no blog posts</translate>
+          {{ $gettext('There are no blog posts') }}
         </h1>
       </div>
     </v-container>
