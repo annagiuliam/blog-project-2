@@ -71,10 +71,16 @@ msgstr "There are no blog posts"
 msgid "Title"
 msgstr ""
 
+msgid "close"
+msgstr ""
+
 msgid "delete"
 msgstr ""
 
 msgid "edit"
+msgstr ""
+
+msgid "go back"
 msgstr ""
 
 msgid "read"

@@ -5,15 +5,19 @@ msgstr ""
 "Generated-By: easygettext\n"
 "Project-Id-Version: \n"
 
-#: src/components/InputDialog.vue:165
+#: src/components/InputDialog.vue:148
 msgid "Category"
 msgstr ""
 
-#: src/components/InputDialog.vue:202
+#: src/components/CloseBtn.vue:18
+msgid "close"
+msgstr ""
+
+#: src/components/InputDialog.vue:185
 msgid "Content"
 msgstr ""
 
-#: src/components/InputDialog.vue:10
+#: src/components/InputDialog.vue:12
 msgid "Content missing"
 msgstr ""
 
@@ -25,7 +29,7 @@ msgstr ""
 msgid "Delete all posts"
 msgstr ""
 
-#: src/components/InputDialog.vue:145
+#: src/components/InputDialog.vue:128
 msgid "E-mail"
 msgstr ""
 
@@ -33,7 +37,7 @@ msgstr ""
 msgid "edit"
 msgstr ""
 
-#: src/components/InputDialog.vue:72
+#: src/components/InputDialog.vue:55
 msgid "Edit Post"
 msgstr ""
 
@@ -41,15 +45,19 @@ msgstr ""
 msgid "Environment"
 msgstr ""
 
-#: src/components/InputDialog.vue:97
+#: src/components/InputDialog.vue:80
 msgid "First Name"
 msgstr ""
 
-#: src/components/InputDialog.vue:17
+#: src/components/GoBackBtn.vue:21
+msgid "go back"
+msgstr ""
+
+#: src/components/InputDialog.vue:19
 msgid "Invalid e-mail."
 msgstr ""
 
-#: src/components/InputDialog.vue:129
+#: src/components/InputDialog.vue:112
 msgid "Last Name"
 msgstr ""
 
@@ -57,11 +65,11 @@ msgstr ""
 msgid "Latest News"
 msgstr ""
 
-#: src/components/InputDialog.vue:13
+#: src/components/InputDialog.vue:15
 msgid "Max. number of characters reached"
 msgstr ""
 
-#: src/components/InputDialog.vue:113
+#: src/components/InputDialog.vue:96
 msgid "Middle Name"
 msgstr ""
 
@@ -69,9 +77,8 @@ msgstr ""
 msgid "Nature"
 msgstr ""
 
-#: src/components/InputDialog.vue:73
-#: src/views/Home.vue:1
-#: src/views/Home.vue:23
+#: src/components/InputDialog.vue:56
+#: src/views/Home.vue:22
 msgid "New Post"
 msgstr ""
 
@@ -83,7 +90,7 @@ msgstr ""
 msgid "read"
 msgstr ""
 
-#: src/components/InputDialog.vue:215
+#: src/components/InputDialog.vue:198
 msgid "Save"
 msgstr ""
 
@@ -99,11 +106,10 @@ msgstr ""
 msgid "Sort by date"
 msgstr ""
 
-#: src/views/Home.vue:1
-#: src/views/Home.vue:34
+#: src/views/Home.vue:31
 msgid "There are no blog posts"
 msgstr ""
 
-#: src/components/InputDialog.vue:187
+#: src/components/InputDialog.vue:170
 msgid "Title"
 msgstr ""

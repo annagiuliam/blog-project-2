@@ -71,11 +71,17 @@ msgstr "Es gibt noch keine Blogbeiträge"
 msgid "Title"
 msgstr "Titel"
 
+msgid "close"
+msgstr "schließen"
+
 msgid "delete"
 msgstr "löschen"
 
 msgid "edit"
 msgstr "bearbeiten"
+
+msgid "go back"
+msgstr "zurück"
 
 msgid "read"
 msgstr "lesen"
