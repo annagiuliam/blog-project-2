@@ -220,6 +220,7 @@ export default {
       console.log(this.postData)
     }
   },
+
   methods: {
     setPostId () {
       this.postData.id =
@@ -254,6 +255,7 @@ export default {
       this.$store.dispatch('clearCurrentPost')
       this.$refs.form.reset()
     }
+
   }
 }
 </script>
