@@ -5,21 +5,56 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid ""
-"<v-icon class=\"mr-2\">\n"
-"            mdi-calendar-month-outline\n"
-"          </v-icon>\n"
-"          Sort by date"
-msgstr ""
+msgid "Category"
+msgstr "Kategorie"
 
-msgid "Delet all posts"
+msgid "Content"
+msgstr "Inhalt"
+
+msgid "Content missing"
+msgstr "Inhalt fehlt"
+
+msgid "Delete all posts"
 msgstr "Alle Beiträge löschen"
 
+msgid "E-mail"
+msgstr "E-Mail"
+
+msgid "Edit Post"
+msgstr "Beitrag bearbeiten"
+
+msgid "Environment"
+msgstr "Umwelt"
+
+msgid "First Name"
+msgstr "Vorname"
+
 msgid "Invalid e-mail."
-msgstr "E-Mail isy ungültig"
+msgstr "E-Mail ist ungültig"
+
+msgid "Last Name"
+msgstr "Nachname"
+
+msgid "Latest News"
+msgstr "Aktuell"
+
+msgid "Max. number of characters reached"
+msgstr "Max. Länge erreicht"
+
+msgid "Middle Name"
+msgstr "Mittelname"
+
+msgid "Nature"
+msgstr "Natur"
 
 msgid "New Post"
 msgstr "Neuer Beitrag"
+
+msgid "Politics"
+msgstr "Politik"
+
+msgid "Save"
+msgstr "Speichern"
 
 msgid "Search term"
 msgstr "Begriff suchen"
@@ -27,11 +62,26 @@ msgstr "Begriff suchen"
 msgid "Sort by category"
 msgstr "Nach Kategorie sortieren"
 
+msgid "Sort by date"
+msgstr "Nach datum sortieren"
+
 msgid "There are no blog posts"
 msgstr "Es gibt noch keine Blogbeiträge"
 
 msgid "Title"
 msgstr "Titel"
+
+msgid "delete"
+msgstr "löschen"
+
+msgid "edit"
+msgstr "bearbeiten"
+
+msgid "read"
+msgstr "lesen"
+
+#~ msgid "Delet all posts"
+#~ msgstr "Alle Beiträge löschen"
 
 #~ msgid "Test message"
 #~ msgstr "Test Nachricht"

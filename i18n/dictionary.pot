@@ -5,38 +5,105 @@ msgstr ""
 "Generated-By: easygettext\n"
 "Project-Id-Version: \n"
 
-#: src/components/Filters.vue:10
-msgid ""
-"<v-icon class=\"mr-2\">\n"
-"            mdi-calendar-month-outline\n"
-"          </v-icon>\n"
-"          Sort by date"
+#: src/components/InputDialog.vue:165
+msgid "Category"
 msgstr ""
 
-#: src/components/Filters.vue:19
-msgid "Delet all posts"
+#: src/components/InputDialog.vue:202
+msgid "Content"
 msgstr ""
 
-#: src/components/InputDialog.vue:16
+#: src/components/InputDialog.vue:10
+msgid "Content missing"
+msgstr ""
+
+#: src/components/PostContent.vue:40
+msgid "delete"
+msgstr ""
+
+#: src/components/Filters.vue:87
+msgid "Delete all posts"
+msgstr ""
+
+#: src/components/InputDialog.vue:145
+msgid "E-mail"
+msgstr ""
+
+#: src/components/PostContent.vue:54
+msgid "edit"
+msgstr ""
+
+#: src/components/InputDialog.vue:72
+msgid "Edit Post"
+msgstr ""
+
+#: src/helpers/categoriesGettext.js:6
+msgid "Environment"
+msgstr ""
+
+#: src/components/InputDialog.vue:97
+msgid "First Name"
+msgstr ""
+
+#: src/components/InputDialog.vue:17
 msgid "Invalid e-mail."
 msgstr ""
 
-#: src/views/Home.vue:26
+#: src/components/InputDialog.vue:129
+msgid "Last Name"
+msgstr ""
+
+#: src/helpers/categoriesGettext.js:5
+msgid "Latest News"
+msgstr ""
+
+#: src/components/InputDialog.vue:13
+msgid "Max. number of characters reached"
+msgstr ""
+
+#: src/components/InputDialog.vue:113
+msgid "Middle Name"
+msgstr ""
+
+#: src/helpers/categoriesGettext.js:4
+msgid "Nature"
+msgstr ""
+
+#: src/components/InputDialog.vue:73
+#: src/views/Home.vue:1
+#: src/views/Home.vue:23
 msgid "New Post"
 msgstr ""
 
-#: src/components/Filters.vue:49
+#: src/helpers/categoriesGettext.js:3
+msgid "Politics"
+msgstr ""
+
+#: src/components/PostTile.vue:19
+msgid "read"
+msgstr ""
+
+#: src/components/InputDialog.vue:215
+msgid "Save"
+msgstr ""
+
+#: src/components/Filters.vue:46
 msgid "Search term"
 msgstr ""
 
-#: src/components/Filters.vue:32
+#: src/components/Filters.vue:29
 msgid "Sort by category"
 msgstr ""
 
-#: src/views/Home.vue:32
+#: src/components/Filters.vue:73
+msgid "Sort by date"
+msgstr ""
+
+#: src/views/Home.vue:1
+#: src/views/Home.vue:34
 msgid "There are no blog posts"
 msgstr ""
 
-#: src/components/InputDialog.vue:180
+#: src/components/InputDialog.vue:187
 msgid "Title"
 msgstr ""

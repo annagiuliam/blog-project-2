@@ -5,21 +5,56 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid ""
-"<v-icon class=\"mr-2\">\n"
-"            mdi-calendar-month-outline\n"
-"          </v-icon>\n"
-"          Sort by date"
+msgid "Category"
 msgstr ""
 
-msgid "Delet all posts"
+msgid "Content"
+msgstr ""
+
+msgid "Content missing"
+msgstr ""
+
+msgid "Delete all posts"
+msgstr ""
+
+msgid "E-mail"
+msgstr ""
+
+msgid "Edit Post"
+msgstr ""
+
+msgid "Environment"
+msgstr ""
+
+msgid "First Name"
 msgstr ""
 
 msgid "Invalid e-mail."
 msgstr ""
 
+msgid "Last Name"
+msgstr ""
+
+msgid "Latest News"
+msgstr ""
+
+msgid "Max. number of characters reached"
+msgstr ""
+
+msgid "Middle Name"
+msgstr ""
+
+msgid "Nature"
+msgstr ""
+
 msgid "New Post"
 msgstr "New Post"
+
+msgid "Politics"
+msgstr ""
+
+msgid "Save"
+msgstr ""
 
 msgid "Search term"
 msgstr ""
@@ -27,10 +62,22 @@ msgstr ""
 msgid "Sort by category"
 msgstr ""
 
+msgid "Sort by date"
+msgstr ""
+
 msgid "There are no blog posts"
 msgstr "There are no blog posts"
 
 msgid "Title"
+msgstr ""
+
+msgid "delete"
+msgstr ""
+
+msgid "edit"
+msgstr ""
+
+msgid "read"
 msgstr ""
 
 #~ msgid "Test message"
