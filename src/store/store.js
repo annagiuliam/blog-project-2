@@ -6,6 +6,9 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
   strict: true,
   state: {
+
+    firstName: '',
+
     currentPost: null,
     posts: [],
     inputDialog: false
@@ -14,6 +17,7 @@ export const store = new Vuex.Store({
   mutations: {
     addNewPost: (state, payload) => {
       state.posts.push(payload)
+      console.log(state.posts)
     },
     deletePost: (state, payload) => {
       const filteredPosts = state.posts.filter((ele) => ele.id !== payload.id)
@@ -41,6 +45,7 @@ export const store = new Vuex.Store({
       state.currentPost = null
       console.log(state.currentPost)
     }
+
   },
 
   actions: {
@@ -69,5 +74,6 @@ export const store = new Vuex.Store({
     clearCurrentPost: ({ commit }) => {
       commit('clearCurrentPost')
     }
+
   }
 })
