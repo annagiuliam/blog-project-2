@@ -37,6 +37,7 @@
 </template>
 
 <script>
+
 import PostTile from './../components/PostTile.vue'
 import Filters from './../components/Filters.vue'
 import SquareBtn from './../components/SquareBtn.vue'
@@ -44,6 +45,7 @@ import LanguageSelector from './../components/LanguageSelector.vue'
 export default {
   name: 'Home',
   components: {
+
     Filters,
     PostTile,
     SquareBtn,
@@ -81,7 +83,7 @@ export default {
         }
         if (this.filters.searchTerm) {
           tempPosts = tempPosts.filter((post) => {
-            const searchPara = ['title', 'author', 'content']
+            const searchPara = ['title', 'content', 'firstName', 'middleName', 'lastName']
             return searchPara.some((para) =>
               post[para]
                 .toLowerCase()
