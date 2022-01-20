@@ -12,7 +12,14 @@
           :label="$gettext('Sort by category')"
           clearable
           @input="updateFilters"
-        />
+        >
+          <template #item="{item}">
+            {{ categoriesGettext[item] }}
+          </template>
+          <template #selection="{item}">
+            {{ categoriesGettext[item] }}
+          </template>
+        </v-select>
       </v-col>
       <v-col
         :cols="cols"
@@ -76,10 +83,15 @@ export default {
   },
   computed: {
     categories () {
-      return Object.values(this.categoriesGettext)
+      return Object.keys(this.categoriesGettext)
     },
     categoriesGettext () {
       return categoriesGettext(this.$gettext)
+    }
+  },
+  watch: {
+    filters (newVal) {
+      console.log(newVal)
     }
   },
   methods: {
