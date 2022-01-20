@@ -71,7 +71,17 @@
                         v-model="postData.lastName"
                         :label="$gettext('Last Name')"
                         counter="10"
-                        :rules="[rules.lengthRule(10)]"
+                        :rules="[rules.lengthRule(10), rules.requiredRule]"
+                      />
+                    </v-col>
+                    <v-col
+                      :cols="cols"
+                      :sm="smallCols"
+                      :md="mediumCols"
+                    >
+                      <v-text-field
+                        v-model="fullName"
+                        :label="$gettext('Full Name')"
                       />
                     </v-col>
 
@@ -189,24 +199,59 @@ export default {
   },
 
   computed: {
-    categories () {
-      return Object.keys(this.categoriesGettext)
-    },
+    // object containing the categories names and their translations
     categoriesGettext () {
       return categoriesGettext(this.$gettext)
+    },
+    // array containing the categories keys
+    categories () {
+      return Object.keys(this.categoriesGettext)
     },
     dialog () {
       return this.$store.state.inputDialog
     },
     currentPost () {
       return this.$store.state.currentPost
+    },
+    fullName: {
+      get: function () {
+        return `${this.postData.firstName} ${this.postData.middleName} ${this.postData.lastName}`.trim()
+      },
+      set: function (newValue) {
+        if (newValue) {
+          console.log(newValue)
+          // filter falsy values like empty string
+          const names = newValue.split(' ').filter(Boolean)
+          console.log(names)
+
+          switch (names.length) {
+            case 1 : this.postData.firstName = names[0]
+              this.postData.lastName = ''
+              break
+            case 2 : this.postData.middleName = ''
+              this.postData.lastName = names[1]
+              break
+            case 3 : this.postData.middleName = names[1]
+              this.postData.lastName = names[2]
+              break
+          }
+        } else {
+          this.postData.firstName = ''
+          this.postData.middleName = ''
+          this.postData.lastName = ''
+        }
+      }
+
     }
+
   },
   watch: {
     currentPost (newVal) {
+      // if there is a currentPost and the inputDialog is open, you are editing the current post and you need to fill the form
       if (newVal && this.$store.state.inputDialog) {
         this.postData = { ...newVal }
       } else {
+        // you do not need to edit the current post, so you can empty the form
         Object.keys(this.postData).forEach((ele) => (this.postData[ele] = ''))
       }
       console.log(this.postData)
