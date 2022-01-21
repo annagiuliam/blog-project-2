@@ -2,7 +2,7 @@
   <div style="position: relative">
     <Tooltip
       v-if="showTooltip"
-      class="location"
+      class="left"
     >
       {{ $gettext('close') }}
     </Tooltip>
@@ -35,11 +35,3 @@ export default {
 
 }
 </script>
-<style scoped>
-.location {
-  top: 25%;
-  left: -150%;
-  width: 5rem;
-  transform: none;
-}
-</style>
