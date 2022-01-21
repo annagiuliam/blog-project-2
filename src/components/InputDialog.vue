@@ -215,25 +215,34 @@ export default {
     },
     fullName: {
       get: function () {
-        return `${this.postData.firstName} ${this.postData.middleName} ${this.postData.lastName}`.trim()
+        if (this.postData.middleName) {
+          return `${this.postData.firstName} ${this.postData.middleName} ${this.postData.lastName}`.trim()
+        } else {
+          return `${this.postData.firstName} ${this.postData.lastName}`.trim()
+        }
       },
       set: function (newValue) {
         if (newValue) {
           console.log(newValue)
           // filter falsy values like empty string
           const names = newValue.split(' ').filter(Boolean)
+
           console.log(names)
 
           switch (names.length) {
             case 1 : this.postData.firstName = names[0]
               this.postData.lastName = ''
               break
-            case 2 : this.postData.middleName = ''
+            case 2 :
+              this.postData.middleName = ''
               this.postData.lastName = names[1]
               break
             case 3 : this.postData.middleName = names[1]
               this.postData.lastName = names[2]
               break
+            default:
+              // index 3 and all following are selected and joined on a space
+              this.postData.lastName = names.splice(2).join(' ')
           }
         } else {
           this.postData.firstName = ''
