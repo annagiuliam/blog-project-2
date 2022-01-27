@@ -1,0 +1,8 @@
+extends:
+  - "plugin:jest/recommended"
+settings:
+  import/resolver:
+    jest:
+      jestConfigFile: ./tests/jest.conf.js
+globals:
+  utils: readonly
