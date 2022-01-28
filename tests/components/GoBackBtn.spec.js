@@ -48,6 +48,7 @@ describe('go back button', () => {
 
     const tooltipText = tooltip.text()
     expect(tooltipText).not.toBe('')
+    utils.debugDom(wrapper)
   })
 
   it('shows tooltip on mouseover', async () => {

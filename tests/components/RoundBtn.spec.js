@@ -54,7 +54,6 @@ describe('round button', () => {
 
     const tooltipText = tooltip.text()
     expect(tooltipText).toBe('tooltip text')
-    utils.debugDom(wrapper)
   })
 
   it('shows tooltip on mouseover', async () => {
@@ -62,7 +61,6 @@ describe('round button', () => {
     await wrapper.find('button').trigger('mouseover')
     const tooltip = wrapper.find('.tooltip')
     expect(tooltip.exists()).toBe(true)
-    // utils.debugDom(wrapper)
   })
 
   it('hides tooltip on mouseleave', async () => {
@@ -73,7 +71,6 @@ describe('round button', () => {
     await wrapper.find('button').trigger('mouseleave')
     const tooltip = wrapper.find('.tooltip')
     expect(tooltip.exists()).toBe(false)
-    utils.debugDom(wrapper)
   })
 
   it('emits correctly', async () => {
