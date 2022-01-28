@@ -53,7 +53,7 @@ describe('round button', () => {
     expect(tooltip.exists()).toBe(true)
 
     const tooltipText = tooltip.text()
-    expect(tooltipText).not.toBe('')
+    expect(tooltipText).toBe('tooltip text')
     utils.debugDom(wrapper)
   })
 
