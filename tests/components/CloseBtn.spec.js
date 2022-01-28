@@ -69,4 +69,11 @@ describe('close button', () => {
     expect(tooltip.exists()).toBe(false)
     utils.debugDom(wrapper)
   })
+
+  it('emits correctly', async () => {
+    const wrapper = render()
+    wrapper.vm.$emit('click')
+    await wrapper.vm.$nextTick()
+    expect(wrapper.emitted('click')).toBeTruthy()
+  })
 })
