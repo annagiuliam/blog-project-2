@@ -32,19 +32,23 @@ describe('close button', () => {
 
   it('does not render the tooltip at first render', () => {
     const wrapper = render()
-
     expect(wrapper.vm.$data.showTooltip).toBe(false)
+    const tooltip = wrapper.find('.tooltip')
+    expect(tooltip.exists()).toBe(false)
   })
 
   it('renders tooltip correctly', async () => {
     const wrapper = render()
-
     wrapper.setData({ showTooltip: true })
     await Vue.nextTick()
 
     expect(wrapper.vm.$data.showTooltip).toBe(true)
+
     const tooltip = wrapper.find('.tooltip')
     expect(tooltip.exists()).toBe(true)
+
+    const tooltipText = tooltip.text()
+    expect(tooltipText).not.toBe('')
   })
 
   it('shows tooltip on mouseover', async () => {
