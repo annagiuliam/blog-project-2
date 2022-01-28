@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import Vue from 'vue'
 import Vuetify from 'vuetify'
-import Tooltip from '@/components/Tooltip.vue'
+import SquareBtn from '@/components/SquareBtn.vue'
 
 Vue.use(Vuetify)
 
@@ -9,7 +9,7 @@ function render () {
   const div = document.createElement('div')
 
   document.body.append(div)
-  return mount(Tooltip, {
+  return mount(SquareBtn, {
     vuetify: new Vuetify(),
     attachTo: div,
     mocks: { $gettext: utils.mocks.translate },
