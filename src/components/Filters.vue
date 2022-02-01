@@ -8,6 +8,7 @@
       >
         <v-select
           v-model="filters.category"
+          data-cm-qa="category-select"
           :items="categories"
           :label="$gettext('Sort by category')"
           clearable
@@ -28,6 +29,7 @@
       >
         <v-text-field
           v-model="filters.searchTerm"
+          data-cm-qa="term-input"
           clearable
           :label="$gettext('Search term')"
           append-icon="mdi-search"
@@ -44,6 +46,7 @@
           text
           color="rgba(0, 0, 0, 0.6)"
           class="custom-btn"
+          data-cm-qa="date-btn"
           @click="sortByDate"
         >
           <v-icon class="mr-2">
@@ -55,6 +58,7 @@
     </v-row>
     <v-row>
       <SquareBtn
+        data-cm-qa="delete-all-btn"
         @click="deleteAllPosts"
       >
         {{ $gettext('Delete all posts') }}
@@ -89,17 +93,18 @@ export default {
       return categoriesGettext(this.$gettext)
     }
   },
-  watch: {
-    filters (newVal) {
-      console.log(newVal)
-    }
-  },
+  // watch: {
+  //   filters (newVal) {
+  //     console.log(newVal)
+  //   }
+  // },
   methods: {
     updateFilters () {
       const finalFilters = { ...this.filters }
       this.$emit('updateFilters', finalFilters)
     },
     sortByDate () {
+      // console.log(this.filters.date)
       this.filters.date = !this.filters.date
       this.updateFilters()
     },
