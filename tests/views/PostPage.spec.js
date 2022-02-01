@@ -1,4 +1,4 @@
-import { mount, createLocalVue } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import Vue from 'vue'
 import Vuex from 'vuex'
 import Vuetify from 'vuetify'
@@ -14,7 +14,7 @@ const testPost = {
   firstName: 'anna',
   middleName: 'giulia',
   lastName: 'musso',
-  email: 'agm@blabka',
+  email: 'agm@blabla',
   category: 'environment',
   title: 'hello',
   content: 'blabla',
