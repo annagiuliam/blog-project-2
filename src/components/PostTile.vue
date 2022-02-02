@@ -7,7 +7,10 @@
       :elip="elip"
     />
     <v-row>
-      <SquareBtn @click="goToPost">
+      <SquareBtn
+        data-cm-qa="read-btn"
+        @click="goToPost"
+      >
         {{ $gettext('read') }}
       </SquareBtn>
     </v-row>
