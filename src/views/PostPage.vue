@@ -7,8 +7,19 @@
         cols="11"
         md="10"
       >
-        <v-card min-width="250px">
-          <PostContent :post="post" />
+        <v-card
+          min-width="250px"
+        >
+          <PostContent
+            v-if="post"
+            :post="post"
+          />
+          <h1
+            v-else
+            data-cm-qa="fallback-text"
+          >
+            {{ $gettext('No post found') }}
+          </h1>
         </v-card>
       </v-col>
     </v-row>
@@ -23,7 +34,7 @@ export default {
   name: 'PostPage',
   components: { PostContent, GoBackBtn },
   props: {
-    postId: { type: String, required: true }
+    postId: { required: true }
   },
   computed: {
     post () {

@@ -3,9 +3,16 @@
 <template>
   <v-card>
     <PostContent
+      v-if="post"
       :post="post"
       :elip="elip"
     />
+    <h1
+      v-else
+      data-cm-qa="fallback-text"
+    >
+      {{ $gettext('No post to display') }}
+    </h1>
     <v-row>
       <SquareBtn
         data-cm-qa="read-btn"
