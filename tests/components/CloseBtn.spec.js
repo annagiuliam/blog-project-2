@@ -27,7 +27,6 @@ describe('close button', () => {
   it('renders', () => {
     const wrapper = render()
     expect(wrapper.isVisible()).toEqual(true)
-    // utils.debugDom(wrapper)
   })
 
   it('does not render the tooltip at first render', () => {
@@ -56,7 +55,6 @@ describe('close button', () => {
     await wrapper.find('button').trigger('mouseover')
     const tooltip = wrapper.find('.tooltip')
     expect(tooltip.exists()).toBe(true)
-    // utils.debugDom(wrapper)
   })
 
   it('hides tooltip on mouseleave', async () => {
@@ -67,13 +65,14 @@ describe('close button', () => {
     await wrapper.find('button').trigger('mouseleave')
     const tooltip = wrapper.find('.tooltip')
     expect(tooltip.exists()).toBe(false)
-    utils.debugDom(wrapper)
   })
 
   it('emits correctly', async () => {
     const wrapper = render()
-    wrapper.vm.$emit('click')
-    await wrapper.vm.$nextTick()
+    // wrapper.vm.$emit('click')
+    // you need to check the triggering
+    await wrapper.find('button').trigger('click')
+
     expect(wrapper.emitted('click')).toBeTruthy()
   })
 })
