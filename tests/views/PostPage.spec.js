@@ -32,7 +32,7 @@ function render () {
 
     },
     propsData: {
-      postId: 'abcde'
+      postId: null
     }
 
   })
@@ -41,18 +41,20 @@ function render () {
 describe('PostPage', () => {
   it('renders', () => {
     const wrapper = render()
-    utils.debugDom(wrapper)
-
-    console.log(wrapper.vm.$data)
     expect(wrapper.isVisible()).toEqual(true)
   })
 
-  it('changes prop correctly', async () => {
+  it('shows message no post found', async () => {
     const wrapper = render()
-    wrapper.setProps({ postId: 'xoxo' })
-    await Vue.nextTick()
-    utils.debugDom(wrapper)
+    const fallBackText = wrapper.find('[data-cm-qa="fallback-text"]')
 
-    expect(wrapper.props().postId).toEqual('xoxo')
+    expect(fallBackText.text()).toBe('**No post found**')
+  })
+
+  it('finds correct post in store', async () => {
+    const wrapper = render()
+    await wrapper.setProps({ postId: 'abcde' })
+    const title = wrapper.find('.v-list-item__title')
+    expect(title.text()).toEqual(testPost.title)
   })
 })

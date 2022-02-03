@@ -48,6 +48,13 @@ describe('post tile', () => {
     const wrapper = render()
     expect(wrapper.isVisible()).toEqual(true)
   })
+  it('handles no post found', async () => {
+    const wrapper = render()
+
+    await wrapper.setProps({ post: null })
+    const fallBackText = wrapper.find('[data-cm-qa="fallback-text"]')
+    expect(fallBackText.text()).toBe('**No post to display**')
+  })
 
   it('triggers router', async () => {
     const wrapper = render()
@@ -59,6 +66,5 @@ describe('post tile', () => {
     expect(mockRouter.push).toHaveBeenCalledWith(mockRoute)
     const routePostId = mockRouter.push.mock.calls[0][0].params.postId
     expect(routePostId).toEqual(testPost.id)
-    expect(routePostId).not.toEqual('')
   })
 })
