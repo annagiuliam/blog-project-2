@@ -29,6 +29,9 @@ msgstr "Umwelt"
 msgid "First Name"
 msgstr "Vorname"
 
+msgid "Full Name"
+msgstr "Vollständiger Name"
+
 msgid "Invalid e-mail."
 msgstr "E-Mail ist ungültig"
 
@@ -49,6 +52,9 @@ msgstr "Natur"
 
 msgid "New Post"
 msgstr "Neuer Beitrag"
+
+msgid "No post to display"
+msgstr "Kein Beitrag"
 
 msgid "Politics"
 msgstr "Politik"

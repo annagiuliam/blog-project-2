@@ -5,7 +5,7 @@ msgstr ""
 "Generated-By: easygettext\n"
 "Project-Id-Version: \n"
 
-#: src/components/InputDialog.vue:148
+#: src/components/InputDialog.vue:161
 msgid "Category"
 msgstr ""
 
@@ -13,7 +13,7 @@ msgstr ""
 msgid "close"
 msgstr ""
 
-#: src/components/InputDialog.vue:185
+#: src/components/InputDialog.vue:198
 msgid "Content"
 msgstr ""
 
@@ -25,11 +25,11 @@ msgstr ""
 msgid "delete"
 msgstr ""
 
-#: src/components/Filters.vue:87
+#: src/components/Filters.vue:101
 msgid "Delete all posts"
 msgstr ""
 
-#: src/components/InputDialog.vue:128
+#: src/components/InputDialog.vue:141
 msgid "E-mail"
 msgstr ""
 
@@ -37,7 +37,7 @@ msgstr ""
 msgid "edit"
 msgstr ""
 
-#: src/components/InputDialog.vue:55
+#: src/components/InputDialog.vue:54
 msgid "Edit Post"
 msgstr ""
 
@@ -45,8 +45,12 @@ msgstr ""
 msgid "Environment"
 msgstr ""
 
-#: src/components/InputDialog.vue:80
+#: src/components/InputDialog.vue:79
 msgid "First Name"
+msgstr ""
+
+#: src/components/InputDialog.vue:127
+msgid "Full Name"
 msgstr ""
 
 #: src/components/GoBackBtn.vue:21
@@ -57,7 +61,7 @@ msgstr ""
 msgid "Invalid e-mail."
 msgstr ""
 
-#: src/components/InputDialog.vue:112
+#: src/components/InputDialog.vue:111
 msgid "Last Name"
 msgstr ""
 
@@ -69,7 +73,7 @@ msgstr ""
 msgid "Max. number of characters reached"
 msgstr ""
 
-#: src/components/InputDialog.vue:96
+#: src/components/InputDialog.vue:95
 msgid "Middle Name"
 msgstr ""
 
@@ -77,32 +81,36 @@ msgstr ""
 msgid "Nature"
 msgstr ""
 
-#: src/components/InputDialog.vue:56
+#: src/components/InputDialog.vue:55
 #: src/views/Home.vue:22
 msgid "New Post"
+msgstr ""
+
+#: src/components/PostTile.vue:22
+msgid "No post to display"
 msgstr ""
 
 #: src/helpers/categoriesGettext.js:3
 msgid "Politics"
 msgstr ""
 
-#: src/components/PostTile.vue:19
+#: src/components/PostTile.vue:30
 msgid "read"
 msgstr ""
 
-#: src/components/InputDialog.vue:198
+#: src/components/InputDialog.vue:211
 msgid "Save"
 msgstr ""
 
-#: src/components/Filters.vue:46
+#: src/components/Filters.vue:56
 msgid "Search term"
 msgstr ""
 
-#: src/components/Filters.vue:29
+#: src/components/Filters.vue:30
 msgid "Sort by category"
 msgstr ""
 
-#: src/components/Filters.vue:73
+#: src/components/Filters.vue:84
 msgid "Sort by date"
 msgstr ""
 
@@ -110,6 +118,6 @@ msgstr ""
 msgid "There are no blog posts"
 msgstr ""
 
-#: src/components/InputDialog.vue:170
+#: src/components/InputDialog.vue:183
 msgid "Title"
 msgstr ""

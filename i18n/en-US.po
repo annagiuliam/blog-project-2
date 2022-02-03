@@ -29,6 +29,9 @@ msgstr ""
 msgid "First Name"
 msgstr ""
 
+msgid "Full Name"
+msgstr ""
+
 msgid "Invalid e-mail."
 msgstr ""
 
@@ -49,6 +52,9 @@ msgstr ""
 
 msgid "New Post"
 msgstr "New Post"
+
+msgid "No post to display"
+msgstr ""
 
 msgid "Politics"
 msgstr ""
