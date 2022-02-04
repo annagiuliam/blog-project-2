@@ -12,11 +12,10 @@ const mockRouter = {
 }
 
 const mockRoute = {
-
   name: 'post-page',
   params: { postId: testPost.id }
-
 }
+
 function render () {
   const div = document.createElement('div')
 
