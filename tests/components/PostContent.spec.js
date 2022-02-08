@@ -22,9 +22,10 @@ function render () {
       $store: {
         dispatch: jest.fn()
       },
-      $route: {
-        name: 'home'
-      }
+      $router: {
+        push: jest.fn()
+      },
+      $route: { name: 'home' }
     },
     propsData: {
       post: testPost
@@ -65,15 +66,35 @@ describe('post content', () => {
     expect(postDate.text()).toEqual(testDate)
   })
 
-  it.only('dispatches delete post action correctly', async () => {
+  it('dispatches delete post action correctly', async () => {
     const wrapper = render()
-    // const spyDelete = jest.spyOn(PostContent.methods, 'deletePost')
     const mockDispatch = wrapper.vm.$store.dispatch = jest.fn()
     const deleteBtn = wrapper.find('[data-cm-qa="delete-btn"]')
     // was ist besser knopf mit data-cm-qa oder mit icon Klasse??
     // const deleteBtn = wrapper.find('.mdi-delete-outline')
+    expect(deleteBtn.exists()).toBe(true)
     await deleteBtn.trigger('click')
-    utils.debugDom(wrapper)
     expect(mockDispatch).toHaveBeenCalledWith('deletePost', testPost)
+
+    // do not call router.push if you are already in the home page
+    expect(wrapper.vm.$router.push).not.toHaveBeenCalled()
+
+    wrapper.vm.$route.name = 'post-page'
+    await Vue.nextTick()
+    await deleteBtn.trigger('click')
+    // goes back to home if post gets deleted from PostPage
+    expect(wrapper.vm.$router.push).toHaveBeenCalledWith({ name: 'home' })
+  })
+
+  it('dispatches edit post action corectly', async () => {
+    const wrapper = render()
+    const editBtn = wrapper.find('[data-cm-qa="edit-btn"]')
+    const mockDispatch = wrapper.vm.$store.dispatch = jest.fn()
+
+    expect(editBtn.exists()).toBe(true)
+    await editBtn.trigger('click')
+
+    expect(mockDispatch).toHaveBeenNthCalledWith(1, 'updateCurrentPost', testPost)
+    expect(mockDispatch).toHaveBeenNthCalledWith(2, 'openInputDialog')
   })
 })
