@@ -116,7 +116,6 @@ export default {
   },
   methods: {
     deletePost () {
-      console.log('hello')
       this.$store.dispatch('deletePost', this.post)
 
       if (this.$route.name === 'post-page') {
