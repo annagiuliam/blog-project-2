@@ -39,6 +39,10 @@ function render () {
 }
 
 describe('PostPage', () => {
+  beforeEach(() => {
+    document.body.innerHTML = null
+    jest.clearAllMocks()
+  })
   it('renders', () => {
     const wrapper = render()
     expect(wrapper.isVisible()).toEqual(true)
