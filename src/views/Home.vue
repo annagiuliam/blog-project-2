@@ -3,7 +3,10 @@
     <v-container class="d-flex flex-column justify-center">
       <LanguageSelector style="width: 200px" />
 
-      <SquareBtn @click="openInputDialog">
+      <SquareBtn
+        data-cm-qa="add-new-btn"
+        @click="openInputDialog"
+      >
         {{ $gettext('New Post') }}
       </SquareBtn>
       <div v-if="posts.length > 0">

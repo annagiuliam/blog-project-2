@@ -44,7 +44,6 @@ describe('Home', () => {
   })
   it('renders', () => {
     const wrapper = render()
-
     expect(wrapper.isVisible()).toEqual(true)
   })
 
@@ -59,7 +58,6 @@ describe('Home', () => {
     wrapper.vm.$store.state.posts = []
     await Vue.nextTick()
     const fallback = wrapper.find('h1')
-
     expect(fallback.text()).toBe('**There are no blog posts**')
   })
 
@@ -76,10 +74,10 @@ describe('Home', () => {
     expect(filtersContainer.exists()).toBe(true)
   })
 
-  it('dispatches open input dialog to store', async () => {
+  it('dispatches open input dialog function', async () => {
     const wrapper = render()
     const mockDispatch = wrapper.vm.$store.dispatch = jest.fn()
-    await wrapper.find('button').trigger('click')
+    await wrapper.find('[data-cm-qa="add-new-btn"').trigger('click')
     expect(mockDispatch).toHaveBeenCalled()
   })
 
