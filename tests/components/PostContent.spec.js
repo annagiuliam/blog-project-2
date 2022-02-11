@@ -20,7 +20,7 @@ function render () {
         current: 'de-DE'
       },
       $store: {
-        dispatch: jest.fn()
+        // dispatch: jest.fn()
       },
       $router: {
         push: jest.fn()
