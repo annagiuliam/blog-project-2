@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 import Vuetify from 'vuetify'
 
 import Home from '@/views/Home.vue'
-import { testPost } from '../helpers/testHelpers'
+import { testPost, testPost2 } from '../helpers/testHelpers'
 
 Vue.use(Vuetify)
 
@@ -26,14 +26,20 @@ function render () {
         },
         current: 'de-DE'
       },
-      $store: new Vuex.Store({
-        strict: true,
-        state () {
-          return {
-            posts: []
-          }
+      //   $store: new Vuex.Store({
+      //     strict: true,
+      //     state () {
+      //       return {
+      //         posts: []
+      //       }
+      //     }
+      //   })
+      $store: {
+        state: {
+          posts: []
         }
-      })
+        // dispatch: jest.fn()
+      }
     }
   })
 }
@@ -49,10 +55,42 @@ describe('Home', () => {
     expect(wrapper.isVisible()).toEqual(true)
   })
 
-  it.only('shows fallback text if there are no posts', () => {
+  it('displays language selector', () => {
+    const wrapper = render()
+    const languageSelector = wrapper.find('[ data-cm-qa="language-selector"')
+    expect(languageSelector.exists()).toBe(true)
+  })
+
+  it('shows fallback text if there are no posts', () => {
     const wrapper = render()
     const fallback = wrapper.find('h1')
 
     expect(fallback.text()).toBe('**There are no blog posts**')
+  })
+
+  it('shows available posts', async () => {
+    const wrapper = render()
+    wrapper.vm.$store.state.posts = [testPost, testPost2]
+    await Vue.nextTick()
+    // use findAll displayed posts
+    const cards = wrapper.findAll('.v-card')
+    // the number of displayed posts must equal the length of the posts array
+    expect(cards.length).toEqual(wrapper.vm.$store.state.posts.length)
+  })
+
+  it('displays the filters if there are posts', async () => {
+    const wrapper = render()
+    wrapper.vm.$store.state.posts = [testPost, testPost2]
+    await Vue.nextTick()
+    utils.debugDom(wrapper)
+    const filtersContainer = wrapper.find('[data-cm-qa="filters-container"]')
+    expect(filtersContainer.exists()).toBe(true)
+  })
+
+  it.only('dispatches open input dialog to store', async () => {
+    const wrapper = render()
+    const mockDispatch = wrapper.vm.$store.dispatch = jest.fn()
+    await wrapper.find('button').trigger('click')
+    expect(mockDispatch).toHaveBeenCalled()
   })
 })

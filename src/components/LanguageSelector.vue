@@ -1,27 +1,26 @@
 
 <template>
-  <div>
-    <v-select
-      v-model="$language.current"
-      :items="languagesKeys"
-    >
-      <template #item="{item}">
-        <!-- Flag is not a vuetify component, therefore margin needs to be added with style  -->
-        <Flag
-          :code="languagesObj[item].code"
-          style="margin-right: 1rem"
-        />
-        {{ languagesObj[item].name }}
-      </template>
-      <template #selection="{item}">
-        <Flag
-          :code="languagesObj[item].code"
-          style="margin-right: 1rem"
-        />
-        {{ languagesObj[item].name }}
-      </template>
-    </v-select>
-  </div>
+  <v-select
+    v-model="$language.current"
+    data-cm-qa="language-selector"
+    :items="languagesKeys"
+  >
+    <template #item="{item}">
+      <!-- Flag is not a vuetify component, therefore margin needs to be added with style  -->
+      <Flag
+        :code="languagesObj[item].code"
+        style="margin-right: 1rem"
+      />
+      {{ languagesObj[item].name }}
+    </template>
+    <template #selection="{item}">
+      <Flag
+        :code="languagesObj[item].code"
+        style="margin-right: 1rem"
+      />
+      {{ languagesObj[item].name }}
+    </template>
+  </v-select>
 </template>
 <script>
 

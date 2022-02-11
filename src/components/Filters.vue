@@ -1,5 +1,8 @@
 <template>
-  <v-container mb-6>
+  <v-container
+    mb-6
+    data-cm-qa="filters-container"
+  >
     <v-row class="mb-4 d-flex wrap justify-center align-center">
       <v-col
         :cols="cols"
