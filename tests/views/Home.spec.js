@@ -1,14 +1,11 @@
 import { mount } from '@vue/test-utils'
 import Vue from 'vue'
-import Vuex from 'vuex'
 import Vuetify from 'vuetify'
 
 import Home from '@/views/Home.vue'
 import { testPost, testPost2, testPost3 } from '../helpers/testHelpers'
 
 Vue.use(Vuetify)
-
-Vue.use(Vuex)
 
 function render () {
   const div = document.createElement('div')
@@ -140,5 +137,22 @@ describe('Home', () => {
     // search for the title in the first and only item in cards array
     const post1Title = cards.at(0).find('.v-list-item__title')
     expect(post1Title.text()).toEqual(testPost2.title)
+  })
+
+  it('filters by category, search term and sorts by date', async () => {
+    const wrapper = render()
+
+    await wrapper.setData({
+      filters: {
+        category: 'environment',
+        date: true,
+        searchTerm: 'title'
+      }
+    })
+
+    const cards = wrapper.findAll('.v-card')
+    expect(cards.length).toBe(1)
+    const post1Title = cards.at(0).find('.v-list-item__title')
+    expect(post1Title.text()).toEqual(testPost3.title)
   })
 })
