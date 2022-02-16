@@ -10,7 +10,10 @@
         <v-card min-height="90vh">
           <v-container>
             <v-row justify="end">
-              <CloseBtn @click="closeInputDialog" />
+              <CloseBtn
+                data-cm-qa="close-btn"
+                @click="closeInputDialog"
+              />
             </v-row>
           </v-container>
 
@@ -43,6 +46,7 @@
 
                       <v-text-field
                         v-model="postData.firstName"
+                        data-cm-qa="first-name-input"
                         :label="$gettext('First Name')"
                         counter="10"
                         :rules="[rules.requiredRule, rules.lengthRule(10)]"
@@ -56,6 +60,7 @@
                     >
                       <v-text-field
                         v-model="postData.middleName"
+                        data-cm-qa="middle-name-input"
                         :label="$gettext('Middle Name')"
                         counter="10"
                         :rules="[rules.lengthRule(10)]"
@@ -69,6 +74,7 @@
                     >
                       <v-text-field
                         v-model="postData.lastName"
+                        data-cm-qa="last-name-input"
                         :label="$gettext('Last Name')"
                         counter="10"
                         :rules="[rules.lengthRule(10), rules.requiredRule]"
@@ -81,6 +87,7 @@
                     >
                       <v-text-field
                         v-model="fullName"
+                        data-cm-qa="full-name-input"
                         :label="$gettext('Full Name')"
                       />
                     </v-col>
@@ -91,6 +98,7 @@
                     >
                       <v-text-field
                         v-model="postData.email"
+                        data-cm-qa="email-input"
                         type="email"
                         :label="$gettext('E-mail')"
                         :rules="[rules.requiredRule, rules.emailRule]"
@@ -105,6 +113,7 @@
                     >
                       <v-select
                         v-model="postData.category"
+                        data-cm-qa="category-input"
                         :items="categories"
                         :label="$gettext('Category')"
                         :rules="[rules.requiredRule]"
@@ -124,6 +133,7 @@
                     >
                       <v-text-field
                         v-model="postData.title"
+                        data-cm-qa="title-input"
                         :label="$gettext('Title')"
                         counter="60"
                         :rules="[rules.requiredRule, rules.lengthRule(60)]"
@@ -134,6 +144,7 @@
                   <v-row>
                     <v-textarea
                       v-model="postData.content"
+                      data-cm-qa="content-input"
                       :label="$gettext('Content')"
                       outlined
                       auto-grow
@@ -144,6 +155,7 @@
 
                   <v-row justify="end">
                     <v-btn
+                      data-cm-qa="save-btn"
                       @click="sendMessage"
                     >
                       {{ $gettext('Save') }}
@@ -208,6 +220,7 @@ export default {
       return Object.keys(this.categoriesGettext)
     },
     dialog () {
+      console.log('computed', this.$store.state.inputDialog)
       return this.$store.state.inputDialog
     },
     currentPost () {
@@ -223,11 +236,8 @@ export default {
       },
       set: function (newValue) {
         if (newValue) {
-          console.log(newValue)
           // filter falsy values like empty string
           const names = newValue.split(' ').filter(Boolean)
-
-          console.log(names)
 
           switch (names.length) {
             case 1 : this.postData.firstName = names[0]
@@ -282,16 +292,15 @@ export default {
       if (formValid) {
         let finalData
         if (this.$store.state.currentPost) {
+          // edit the current post in the store
           finalData = { ...this.postData }
           this.$store.dispatch('editPost', finalData)
-          this.$store.dispatch('clearCurrentPost')
         } else {
           // it is a new post and you need to set date and id
           this.setPostId()
           this.setDate()
           finalData = { ...this.postData }
           this.$store.dispatch('addNewPost', finalData)
-          console.log(finalData)
         }
         this.closeInputDialog()
       }
