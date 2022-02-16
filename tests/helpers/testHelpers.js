@@ -32,4 +32,16 @@ const testPost3 = {
   id: 'ididid'
 }
 
-export { testPost, testPost2, testPost3 }
+const testPost4 = {
+  firstName: 'anna',
+  middleName: 'giulia',
+  lastName: 'musso',
+  email: 'agm@blabla',
+  category: 'environment',
+  title: 'hello',
+  content: 'blabla',
+  creationDate: new Date(2020, 0, 1),
+  id: 'aa1577836800000'
+}
+
+export { testPost, testPost2, testPost3, testPost4 }
