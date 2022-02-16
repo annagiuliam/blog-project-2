@@ -26,6 +26,7 @@ describe('close button', () => {
 
   it('renders', () => {
     const wrapper = render()
+
     expect(wrapper.isVisible()).toEqual(true)
   })
 
@@ -40,7 +41,6 @@ describe('close button', () => {
     const wrapper = render()
     wrapper.setData({ showTooltip: true })
     await Vue.nextTick()
-
     expect(wrapper.vm.$data.showTooltip).toBe(true)
 
     const tooltip = wrapper.find('.tooltip')

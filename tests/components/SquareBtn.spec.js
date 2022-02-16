@@ -33,7 +33,6 @@ describe('square button', () => {
   it('shows correct slot text', () => {
     const wrapper = render()
     expect(wrapper.html()).toContain('some text')
-    utils.debugDom(wrapper)
   })
 
   it('emits correctly', async () => {

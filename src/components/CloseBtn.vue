@@ -7,6 +7,7 @@
       {{ $gettext('close') }}
     </Tooltip>
     <v-btn
+      :data-cm-qa="dataCmQa"
       class="ma-2"
       outlined
       fab
@@ -26,7 +27,7 @@ import Tooltip from './Tooltip.vue'
 export default {
   name: 'CloseBtn',
   components: { Tooltip },
-  props: ['tooltipText'],
+  props: ['tooltipText', 'dataCmQa'],
   data () {
     return {
       showTooltip: false

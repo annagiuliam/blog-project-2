@@ -29,7 +29,6 @@ function render () {
 describe('language selector', () => {
   it('renders', () => {
     const wrapper = render()
-    utils.debugDom(wrapper)
     expect(wrapper.isVisible()).toBe(true)
   })
 })

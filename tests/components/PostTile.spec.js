@@ -57,7 +57,6 @@ describe('post tile', () => {
 
   it('triggers router', async () => {
     const wrapper = render()
-    utils.debugDom(wrapper)
     const readBtn = wrapper.find('[data-cm-qa="read-btn"]')
 
     await readBtn.trigger('click')

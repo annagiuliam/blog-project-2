@@ -48,7 +48,6 @@ describe('go back button', () => {
 
     const tooltipText = tooltip.text()
     expect(tooltipText).not.toBe('')
-    utils.debugDom(wrapper)
   })
 
   it('shows tooltip on mouseover', async () => {
@@ -73,6 +72,5 @@ describe('go back button', () => {
     const wrapper = render()
     await wrapper.find('button').trigger('click')
     expect(mockRouter.back).toHaveBeenCalled()
-    utils.debugDom(wrapper)
   })
 })

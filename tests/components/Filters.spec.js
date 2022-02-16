@@ -78,7 +78,6 @@ describe('filters component', () => {
     const spy = jest.spyOn(Filters.methods, 'sortByDate')
     const wrapper = render()
     const dateBtn = wrapper.find('[data-cm-qa="date-btn"]')
-    utils.debugDom(wrapper)
     expect(dateBtn.exists()).toBe(true)
     await dateBtn.trigger('click')
     expect(spy).toHaveBeenCalled()

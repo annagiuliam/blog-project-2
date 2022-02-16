@@ -61,7 +61,7 @@ describe('post content', () => {
 
   it('displays correct formatted date', () => {
     const wrapper = render()
-    const testDate = new Date().toLocaleDateString(wrapper.vm.$language.current, wrapper.vm.$data.dateOptions)
+    const testDate = new Date(2020, 0).toLocaleDateString(wrapper.vm.$language.current, wrapper.vm.$data.dateOptions)
     const postDate = wrapper.find('[data-cm-qa="formatted-date"]')
     expect(postDate.text()).toEqual(testDate)
   })
