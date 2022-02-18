@@ -20,7 +20,7 @@ function render () {
         current: 'de-DE'
       },
       $store: {
-        // dispatch: jest.fn()
+        dispatch: jest.fn()
       },
       $router: {
         push: jest.fn()
@@ -28,7 +28,8 @@ function render () {
       $route: { name: 'home' }
     },
     propsData: {
-      post: testPost
+      post: testPost,
+      elip: false
     }
   })
 }
@@ -51,6 +52,13 @@ describe('post content', () => {
     const fallbackText = wrapper.find('[data-cm-qa="fallback-text"]')
     expect(fallbackText.exists()).toBe(true)
   })
+  it('post undefined', async () => {
+    const wrapper = render()
+    await wrapper.setProps({ post: undefined })
+
+    const fallbackText = wrapper.find('[data-cm-qa="fallback-text"]')
+    expect(fallbackText.exists()).toBe(true)
+  })
 
   it('displays post content correctly if post provided', () => {
     const wrapper = render()
@@ -66,35 +74,32 @@ describe('post content', () => {
     expect(postDate.text()).toEqual(testDate)
   })
 
-  it('dispatches delete post action correctly', async () => {
+  it('executes delete post method correctly', async () => {
     const wrapper = render()
-    const mockDispatch = wrapper.vm.$store.dispatch = jest.fn()
     const deleteBtn = wrapper.find('[data-cm-qa="delete-btn"]')
     // was ist besser knopf mit data-cm-qa oder mit icon Klasse??
     // const deleteBtn = wrapper.find('.mdi-delete-outline')
     expect(deleteBtn.exists()).toBe(true)
     await deleteBtn.trigger('click')
-    expect(mockDispatch).toHaveBeenCalledWith('deletePost', testPost)
+    expect(wrapper.vm.$store.dispatch).toHaveBeenCalledWith('deletePost', testPost)
 
     // do not call router.push if you are already in the home page
     expect(wrapper.vm.$router.push).not.toHaveBeenCalled()
 
+    // goes back to home if post gets deleted from PostPage
     wrapper.vm.$route.name = 'post-page'
     await Vue.nextTick()
     await deleteBtn.trigger('click')
-    // goes back to home if post gets deleted from PostPage
     expect(wrapper.vm.$router.push).toHaveBeenCalledWith({ name: 'home' })
   })
 
   it('dispatches edit post action corectly', async () => {
     const wrapper = render()
-    const editBtn = wrapper.find('[data-cm-qa="edit-btn"]')
-    const mockDispatch = wrapper.vm.$store.dispatch = jest.fn()
 
-    expect(editBtn.exists()).toBe(true)
+    const editBtn = wrapper.find('[data-cm-qa="edit-btn"]')
     await editBtn.trigger('click')
 
-    expect(mockDispatch).toHaveBeenNthCalledWith(1, 'updateCurrentPost', testPost)
-    expect(mockDispatch).toHaveBeenNthCalledWith(2, 'openInputDialog')
+    expect(wrapper.vm.$store.dispatch).toHaveBeenNthCalledWith(1, 'updateCurrentPost', testPost)
+    expect(wrapper.vm.$store.dispatch).toHaveBeenNthCalledWith(2, 'openInputDialog')
   })
 })

@@ -12,7 +12,6 @@ function render () {
   document.body.append(div)
   document.body.setAttribute('data-app', true)
   return mount(InputDialog, {
-    // stubs: ['Flag'],
     vuetify: new Vuetify(),
     attachTo: div,
     mocks: {
@@ -52,17 +51,6 @@ describe('input dialog', () => {
     const form = wrapper.find('form')
     expect(form.exists()).toBe(true)
   })
-
-  //   does not pass if I set the value in the test
-  // it.only('does not render form if InputDialog is false', async () => {
-  //   const wrapper = render()
-  //   wrapper.vm.$store.state.inputDialog = false
-  //   await Vue.nextTick()
-  //   console.log(wrapper.vm.$store.state.inputDialog)
-  //   utils.debugDom(wrapper)
-  //   const form = wrapper.find('form')
-  //   expect(form.exists()).toBe(false)
-  // })
 
   it('displays new post title if current post is null', () => {
     const wrapper = render()
@@ -108,6 +96,8 @@ describe('input dialog', () => {
   it('new post: calls the right dispatches with the right payload', async () => {
     const wrapper = render()
     const mockDispatch = wrapper.vm.$store.dispatch = jest.fn()
+    const mockReset = wrapper.vm.$refs.form.reset = jest.fn()
+
     await wrapper.find('[data-cm-qa="first-name-input"]').setValue(testPost4.firstName)
     await wrapper.find('[data-cm-qa="middle-name-input"]').setValue(testPost4.middleName)
     await wrapper.find('[data-cm-qa="last-name-input"]').setValue(testPost4.lastName)
@@ -123,6 +113,16 @@ describe('input dialog', () => {
     expect(mockDispatch).toHaveBeenNthCalledWith(1, 'addNewPost', testPost4)
     expect(mockDispatch).toHaveBeenNthCalledWith(2, 'closeInputDialog')
     expect(mockDispatch).toHaveBeenNthCalledWith(3, 'clearCurrentPost')
+    expect(mockReset).toHaveBeenCalled()
+  })
+
+  it('edit post: fills postData if there is a current post to edit', async () => {
+    const wrapper = render()
+    wrapper.vm.$store.state.currentPost = testPost4
+    await Vue.nextTick()
+    const postData = wrapper.vm.$data.postData
+    const postDataFilled = Object.values(postData).every(el => el !== '')
+    expect(postDataFilled).toBe(true)
   })
 
   it('edit post: calls the right dispatches with edited data', async () => {
@@ -142,6 +142,16 @@ describe('input dialog', () => {
     expect(mockDispatch).toHaveBeenNthCalledWith(2, 'closeInputDialog')
     expect(mockDispatch).toHaveBeenNthCalledWith(3, 'clearCurrentPost')
     expect(mockReset).toHaveBeenCalled()
+  })
+
+  it('edit post: clears postData when you close inputDialog', async () => {
+    const wrapper = render()
+    wrapper.vm.$store.state.currentPost = testPost4
+    wrapper.vm.$store.state.inputDialog = false
+    await Vue.nextTick()
+    const postData = wrapper.vm.$data.postData
+    const postDataCleared = Object.values(postData).every(el => el === '')
+    expect(postDataCleared).toBe(true)
   })
 
   it('splits full name correctly into the name inputs', async () => {
@@ -170,6 +180,11 @@ describe('input dialog', () => {
     expect(firstNameInput.element.value).toEqual('first')
     expect(middleNameInput.element.value).toEqual('middle')
     expect(lastNameInput.element.value).toEqual('last and more')
+
+    await fullNameInput.setValue('')
+    expect(firstNameInput.element.value).toEqual('')
+    expect(middleNameInput.element.value).toEqual('')
+    expect(lastNameInput.element.value).toEqual('')
   })
 
   it('displays full name correctly', async () => {

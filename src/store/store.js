@@ -6,9 +6,6 @@ Vue.use(Vuex)
 export const storeConfig = {
   strict: true,
   state: {
-
-    firstName: '',
-
     currentPost: null,
     posts: [],
     inputDialog: false
@@ -17,7 +14,6 @@ export const storeConfig = {
   mutations: {
     addNewPost: (state, payload) => {
       state.posts.push(payload)
-      console.log(state.posts)
     },
     deletePost: (state, payload) => {
       const filteredPosts = state.posts.filter((ele) => ele.id !== payload.id)
@@ -43,7 +39,6 @@ export const storeConfig = {
     },
     clearCurrentPost: (state) => {
       state.currentPost = null
-      console.log(state.currentPost)
     }
 
   },
@@ -64,15 +59,14 @@ export const storeConfig = {
     updateCurrentPost: ({ commit }, payload) => {
       commit('updateCurrentPost', payload)
     },
-
+    clearCurrentPost: ({ commit }) => {
+      commit('clearCurrentPost')
+    },
     openInputDialog: ({ commit }) => {
       commit('openInputDialog')
     },
     closeInputDialog: ({ commit }) => {
       commit('closeInputDialog')
-    },
-    clearCurrentPost: ({ commit }) => {
-      commit('clearCurrentPost')
     }
 
   }

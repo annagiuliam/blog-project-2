@@ -34,7 +34,6 @@ describe('App', () => {
 
   it('renders', () => {
     const wrapper = render()
-    utils.debugDom(wrapper)
     expect(wrapper.isVisible()).toEqual(true)
   })
 })

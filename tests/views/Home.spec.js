@@ -26,9 +26,8 @@ function render () {
       $store: {
         state: {
           posts: [testPost, testPost2, testPost3]
-        }
-        // i get an error if I don't define dispatch as a mock in the test
-        // dispatch: jest.fn()
+        },
+        dispatch: jest.fn()
       }
     }
   })
@@ -46,7 +45,7 @@ describe('Home', () => {
 
   it('displays language selector', () => {
     const wrapper = render()
-    const languageSelector = wrapper.find('[ data-cm-qa="language-selector"')
+    const languageSelector = wrapper.find('[data-cm-qa="language-selector"]')
     expect(languageSelector.exists()).toBe(true)
   })
 
@@ -73,9 +72,8 @@ describe('Home', () => {
 
   it('dispatches open input dialog function', async () => {
     const wrapper = render()
-    const mockDispatch = wrapper.vm.$store.dispatch = jest.fn()
-    await wrapper.find('[data-cm-qa="add-new-btn"').trigger('click')
-    expect(mockDispatch).toHaveBeenCalled()
+    await wrapper.find('[data-cm-qa="add-new-btn"]').trigger('click')
+    expect(wrapper.vm.$store.dispatch).toHaveBeenCalledWith('openInputDialog')
   })
 
   it('calls updateFilters function correctly', async () => {
@@ -136,12 +134,19 @@ describe('Home', () => {
     const cards = wrapper.findAll('.v-card')
     // search for the title in the first and only item in cards array
     const post1Title = cards.at(0).find('.v-list-item__title')
+    // testPost2 has most recent creation date
     expect(post1Title.text()).toEqual(testPost2.title)
+    await await wrapper.setData({
+      filters: { date: false }
+    })
+    const newCards = wrapper.findAll('.v-card')
+    const newFirstTitle = newCards.at(0).find('.v-list-item__title')
+    // testPost is the first post in the original post array
+    expect(newFirstTitle.text()).toEqual(testPost.title)
   })
 
   it('filters by category, search term and sorts by date', async () => {
     const wrapper = render()
-
     await wrapper.setData({
       filters: {
         category: 'environment',

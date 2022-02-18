@@ -193,7 +193,6 @@ export default {
           return pattern.test(v) || this.$gettext('Invalid e-mail.')
         }
       },
-
       postData: {
         // author: "",
         firstName: '',
@@ -220,7 +219,6 @@ export default {
       return Object.keys(this.categoriesGettext)
     },
     dialog () {
-      console.log('computed', this.$store.state.inputDialog)
       return this.$store.state.inputDialog
     },
     currentPost () {
@@ -273,7 +271,6 @@ export default {
         // you do not need to edit the current post, so you can empty the form
         Object.keys(this.postData).forEach((ele) => (this.postData[ele] = ''))
       }
-      console.log(this.postData)
     }
   },
 
