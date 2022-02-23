@@ -74,6 +74,16 @@ describe('post content', () => {
     expect(postDate.text()).toEqual(testDate)
   })
 
+  it('displays correct elip class', async () => {
+    const wrapper = render()
+    utils.debugDom(wrapper)
+    let elipClass = wrapper.find('.text-elip')
+    expect(elipClass.exists()).toBe(false)
+    await wrapper.setProps({ elip: true })
+    elipClass = wrapper.find('.text-elip')
+    expect(elipClass.exists()).toBe(true)
+  })
+
   it('executes delete post method correctly', async () => {
     const wrapper = render()
     const deleteBtn = wrapper.find('[data-cm-qa="delete-btn"]')
