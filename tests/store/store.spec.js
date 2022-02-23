@@ -14,12 +14,13 @@ const createStore = () => {
   store = new Vuex.Store(cloneDeep(storeConfig))
 }
 
+beforeEach(() => {
+  document.body.innerHTML = null
+  createStore()
+  jest.clearAllMocks()
+})
+
 describe('store state', () => {
-  beforeEach(() => {
-    document.body.innerHTML = null
-    createStore()
-    jest.clearAllMocks()
-  })
   it('state is initialized correctly', () => {
     expect(store.state.currentPost).toBe(null)
     expect(store.state.posts.length).toEqual(0)
@@ -29,10 +30,7 @@ describe('store state', () => {
 
 describe('mutations with posts', () => {
   beforeEach(() => {
-    document.body.innerHTML = null
-    createStore()
     store.commit('addNewPost', testPost)
-    jest.clearAllMocks()
   })
 
   it('addNewPost', async () => {
@@ -64,12 +62,6 @@ describe('mutations with posts', () => {
 })
 
 describe('mutations with currentPost', () => {
-  beforeEach(() => {
-    document.body.innerHTML = null
-    createStore()
-    jest.clearAllMocks()
-  })
-
   it('updateCurrentPost', async () => {
     await store.commit('updateCurrentPost', testPost)
     const postsAreEqual = isEqual(testPost, store.state.currentPost)
@@ -83,12 +75,6 @@ describe('mutations with currentPost', () => {
 })
 
 describe('mutations with inputDialog', () => {
-  beforeEach(() => {
-    document.body.innerHTML = null
-    createStore()
-    jest.clearAllMocks()
-  })
-
   it('openInputDialog', async () => {
     await store.commit('openInputDialog')
     expect(store.state.inputDialog).toBe(true)
@@ -102,10 +88,7 @@ describe('mutations with inputDialog', () => {
 
 describe('actions with posts', () => {
   beforeEach(() => {
-    document.body.innerHTML = null
-    createStore()
     store.dispatch('addNewPost', testPost)
-    jest.clearAllMocks()
   })
 
   it('addNewPost', async () => {
@@ -137,12 +120,6 @@ describe('actions with posts', () => {
 })
 
 describe('actions with currentPost', () => {
-  beforeEach(() => {
-    document.body.innerHTML = null
-    createStore()
-    jest.clearAllMocks()
-  })
-
   it('updateCurrentPost', async () => {
     await store.dispatch('updateCurrentPost', testPost)
     const postsAreEqual = isEqual(testPost, store.state.currentPost)
@@ -156,12 +133,6 @@ describe('actions with currentPost', () => {
 })
 
 describe('actions with inputDialog', () => {
-  beforeEach(() => {
-    document.body.innerHTML = null
-    createStore()
-    jest.clearAllMocks()
-  })
-
   it('openInputDialog', async () => {
     await store.dispatch('openInputDialog')
     expect(store.state.inputDialog).toBe(true)
