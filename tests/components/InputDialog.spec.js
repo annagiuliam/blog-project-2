@@ -54,7 +54,7 @@ describe('input dialog', () => {
 
   it('displays new post title if current post is null', () => {
     const wrapper = render()
-    const cardTitle = wrapper.find('.v-card__title > .text-h5')
+    const cardTitle = wrapper.find('.v-card__title')
     expect(cardTitle.text()).toEqual('**New Post**')
   })
 
