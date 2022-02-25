@@ -21,6 +21,9 @@ function render () {
       $language: {
         current: 'de-DE'
       },
+      $router: {
+        back: jest.fn()
+      },
       $store: new Vuex.Store({
         strict: true,
         state () {
@@ -60,5 +63,11 @@ describe('PostPage', () => {
     await wrapper.setProps({ postId: 'abcde' })
     const title = wrapper.find('.v-list-item__title')
     expect(title.text()).toEqual(testPost.title)
+  })
+
+  it('calls go back method correctly', async () => {
+    const wrapper = render()
+    await wrapper.find('[data-cm-qa="go-back-btn"]').trigger('click')
+    expect(wrapper.vm.$router.back).toHaveBeenCalled()
   })
 })
