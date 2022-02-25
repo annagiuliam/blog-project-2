@@ -96,18 +96,12 @@ export default {
       return categoriesGettext(this.$gettext)
     }
   },
-  // watch: {
-  //   filters (newVal) {
-  //     console.log(newVal)
-  //   }
-  // },
   methods: {
     updateFilters () {
       const finalFilters = { ...this.filters }
       this.$emit('updateFilters', finalFilters)
     },
     sortByDate () {
-      // console.log(this.filters.date)
       this.filters.date = !this.filters.date
       this.updateFilters()
     },

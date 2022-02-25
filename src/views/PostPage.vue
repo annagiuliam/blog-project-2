@@ -1,6 +1,5 @@
 <template>
   <v-container>
-    <!-- <GoBackBtn /> -->
     <RoundBtn
       data-cm-qa="go-back-btn"
       :tooltip-text="$gettext('go back')"
@@ -36,7 +35,6 @@
 
 <script>
 import PostContent from './../components/PostContent'
-// import GoBackBtn from './../components/GoBackBtn.vue'
 import RoundBtn from '../components/RoundBtn.vue'
 
 export default {
