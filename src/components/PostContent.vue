@@ -19,6 +19,8 @@
               <RoundBtn
                 data-cm-qa="delete-btn"
                 :tooltip-text="$gettext('delete')"
+                tooltip-class="top"
+                x-small
                 @click="deletePost"
               >
                 <v-icon>mdi-delete-outline</v-icon>
@@ -26,6 +28,8 @@
               <RoundBtn
                 data-cm-qa="edit-btn"
                 :tooltip-text="$gettext('edit')"
+                tooltip-class="top"
+                x-small
                 @click="editPost"
               >
                 <v-icon>mdi-pencil</v-icon>
@@ -105,10 +109,6 @@ export default {
       const className = this.elip ? 'text-overline' : 'cat-font-size'
       return className
     },
-    // currentPost () {
-    //   return this.$store.state.currentPost
-    // },
-
     fullName () {
       return `${this.post.firstName} ${this.post.middleName} ${this.post.lastName}`.trim()
     }

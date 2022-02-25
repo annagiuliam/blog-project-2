@@ -2,7 +2,7 @@
   <div style="position: relative">
     <Tooltip
       v-if="showTooltip"
-      class="top"
+      :class="tooltipClass"
     >
       {{ tooltipText }}
     </Tooltip>
@@ -10,7 +10,8 @@
       outlined
       fab
       color="indigo"
-      x-small
+      :x-small="xSmall"
+      :small="small"
       class="ma-2"
       :data-cm-qa="dataCmQa"
       @click="$emit('click')"
@@ -26,7 +27,7 @@ import Tooltip from './Tooltip.vue'
 
 export default {
   components: { Tooltip },
-  props: ['tooltipText', 'dataCmQa'],
+  props: ['tooltipText', 'tooltipClass', 'dataCmQa', 'xSmall', 'small'],
   data () {
     return {
       showTooltip: false

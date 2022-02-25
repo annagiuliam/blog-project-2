@@ -10,10 +10,15 @@
         <v-card min-height="90vh">
           <v-container>
             <v-row justify="end">
-              <CloseBtn
+              <RoundBtn
                 data-cm-qa="close-btn"
+                :tooltip-text="$gettext('close')"
+                tooltip-class="left"
+                small
                 @click="closeInputDialog"
-              />
+              >
+                <v-icon>mdi-close</v-icon>
+              </RoundBtn>
             </v-row>
           </v-container>
 
@@ -173,10 +178,10 @@
 
 <script>
 import categoriesGettext from './../helpers/categoriesGettext'
-import CloseBtn from './CloseBtn.vue'
+import RoundBtn from './RoundBtn.vue'
 export default {
   name: 'InputDialog',
-  components: { CloseBtn },
+  components: { RoundBtn },
   data () {
     return {
       cols: 12,
