@@ -14,6 +14,9 @@ export default {
   name: 'App',
   components: {
     InputDialog
+  },
+  created () {
+    this.$store.dispatch('getPosts')
   }
 }
 </script>

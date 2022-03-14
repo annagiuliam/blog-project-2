@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
 
 Vue.use(Vuex)
-
+const url = 'http://localhost:8000/'
 export const storeConfig = {
   strict: true,
   state: {
@@ -12,6 +13,9 @@ export const storeConfig = {
   },
 
   mutations: {
+    getPosts: (state, payload) => {
+      state.posts = [...payload]
+    },
     addNewPost: (state, payload) => {
       state.posts.push(payload)
     },
@@ -44,6 +48,11 @@ export const storeConfig = {
   },
 
   actions: {
+    getPosts: ({ commit }) => {
+      axios.get(url).then(response => {
+        commit('getPosts', response.data)
+      })
+    },
     addNewPost: ({ commit }, payload) => {
       commit('addNewPost', payload)
     },
