@@ -13,6 +13,7 @@
     "test-my": "NODE_ENV=test jest --config tests/jest.conf.js --verbose"
   },
   "dependencies": {
+    "axios": "^0.26.1",
     "core-js": "^3.6.5",
     "eslint-plugin-standard": "^5.0.0",
     "gettext-extract": "^2.0.1",
