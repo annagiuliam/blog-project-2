@@ -95,7 +95,12 @@ export default {
           })
         }
         if (this.filters.date) {
-          tempPosts.sort((a, b) => b.creationDate - a.creationDate)
+          tempPosts.sort((a, b) => {
+            // need to convert from date string into new date
+            const dateA = new Date(a.creationDate)
+            const dateB = new Date(b.creationDate)
+            return dateB - dateA
+          })
         }
       }
       return tempPosts
