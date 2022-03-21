@@ -26,6 +26,9 @@ msgstr ""
 msgid "Environment"
 msgstr ""
 
+msgid "Error"
+msgstr ""
+
 msgid "First Name"
 msgstr ""
 
@@ -53,7 +56,13 @@ msgstr ""
 msgid "New Post"
 msgstr "New Post"
 
+msgid "No post found"
+msgstr ""
+
 msgid "No post to display"
+msgstr ""
+
+msgid "Please try again later"
 msgstr ""
 
 msgid "Politics"

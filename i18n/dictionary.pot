@@ -5,39 +5,40 @@ msgstr ""
 "Generated-By: easygettext\n"
 "Project-Id-Version: \n"
 
-#: src/components/InputDialog.vue:161
+#: src/components/InputDialog.vue:185
 msgid "Category"
 msgstr ""
 
-#: src/components/CloseBtn.vue:18
+#: src/components/ErrorDialog.vue:34
+#: src/components/InputDialog.vue:48
 msgid "close"
 msgstr ""
 
-#: src/components/InputDialog.vue:198
+#: src/components/InputDialog.vue:224
 msgid "Content"
 msgstr ""
 
-#: src/components/InputDialog.vue:12
+#: src/components/InputDialog.vue:13
 msgid "Content missing"
 msgstr ""
 
-#: src/components/PostContent.vue:40
+#: src/components/PostContent.vue:48
 msgid "delete"
 msgstr ""
 
-#: src/components/Filters.vue:101
+#: src/components/Filters.vue:104
 msgid "Delete all posts"
 msgstr ""
 
-#: src/components/InputDialog.vue:141
+#: src/components/InputDialog.vue:164
 msgid "E-mail"
 msgstr ""
 
-#: src/components/PostContent.vue:54
+#: src/components/PostContent.vue:65
 msgid "edit"
 msgstr ""
 
-#: src/components/InputDialog.vue:54
+#: src/components/InputDialog.vue:72
 msgid "Edit Post"
 msgstr ""
 
@@ -45,23 +46,27 @@ msgstr ""
 msgid "Environment"
 msgstr ""
 
-#: src/components/InputDialog.vue:79
+#: src/components/ErrorDialog.vue:57
+msgid "Error"
+msgstr ""
+
+#: src/components/InputDialog.vue:98
 msgid "First Name"
 msgstr ""
 
-#: src/components/InputDialog.vue:127
+#: src/components/InputDialog.vue:149
 msgid "Full Name"
 msgstr ""
 
-#: src/components/GoBackBtn.vue:21
+#: src/views/PostPage.vue:22
 msgid "go back"
 msgstr ""
 
-#: src/components/InputDialog.vue:19
+#: src/components/InputDialog.vue:20
 msgid "Invalid e-mail."
 msgstr ""
 
-#: src/components/InputDialog.vue:111
+#: src/components/InputDialog.vue:132
 msgid "Last Name"
 msgstr ""
 
@@ -69,11 +74,11 @@ msgstr ""
 msgid "Latest News"
 msgstr ""
 
-#: src/components/InputDialog.vue:15
+#: src/components/InputDialog.vue:16
 msgid "Max. number of characters reached"
 msgstr ""
 
-#: src/components/InputDialog.vue:95
+#: src/components/InputDialog.vue:115
 msgid "Middle Name"
 msgstr ""
 
@@ -81,13 +86,22 @@ msgstr ""
 msgid "Nature"
 msgstr ""
 
-#: src/components/InputDialog.vue:55
-#: src/views/Home.vue:22
+#: src/components/InputDialog.vue:73
+#: src/views/Home.vue:25
 msgid "New Post"
+msgstr ""
+
+#: src/components/PostContent.vue:137
+#: src/views/PostPage.vue:51
+msgid "No post found"
 msgstr ""
 
 #: src/components/PostTile.vue:22
 msgid "No post to display"
+msgstr ""
+
+#: src/components/ErrorDialog.vue:69
+msgid "Please try again later"
 msgstr ""
 
 #: src/helpers/categoriesGettext.js:3
@@ -98,26 +112,26 @@ msgstr ""
 msgid "read"
 msgstr ""
 
-#: src/components/InputDialog.vue:211
+#: src/components/InputDialog.vue:240
 msgid "Save"
 msgstr ""
 
-#: src/components/Filters.vue:56
+#: src/components/Filters.vue:59
 msgid "Search term"
 msgstr ""
 
-#: src/components/Filters.vue:30
+#: src/components/Filters.vue:33
 msgid "Sort by category"
 msgstr ""
 
-#: src/components/Filters.vue:84
+#: src/components/Filters.vue:87
 msgid "Sort by date"
 msgstr ""
 
-#: src/views/Home.vue:31
+#: src/views/Home.vue:34
 msgid "There are no blog posts"
 msgstr ""
 
-#: src/components/InputDialog.vue:183
+#: src/components/InputDialog.vue:208
 msgid "Title"
 msgstr ""

@@ -26,6 +26,9 @@ msgstr "Beitrag bearbeiten"
 msgid "Environment"
 msgstr "Umwelt"
 
+msgid "Error"
+msgstr "Fehler"
+
 msgid "First Name"
 msgstr "Vorname"
 
@@ -53,8 +56,14 @@ msgstr "Natur"
 msgid "New Post"
 msgstr "Neuer Beitrag"
 
+msgid "No post found"
+msgstr ""
+
 msgid "No post to display"
 msgstr "Kein Beitrag"
+
+msgid "Please try again later"
+msgstr "Bitte versuchen Sie später nochmal"
 
 msgid "Politics"
 msgstr "Politik"
