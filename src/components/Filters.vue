@@ -73,6 +73,7 @@
 <script>
 import SquareBtn from './SquareBtn.vue'
 import categoriesGettext from './../helpers/categoriesGettext'
+import axios from 'axios'
 export default {
   name: 'Filters',
   components: { SquareBtn },
@@ -105,8 +106,13 @@ export default {
       this.filters.date = !this.filters.date
       this.updateFilters()
     },
-    deleteAllPosts () {
-      this.$store.dispatch('deleteAllPosts')
+    async deleteAllPosts () {
+      try {
+        await axios.delete(`${this.$store.state.serverUrl}delete`)
+        this.$store.dispatch('deleteAllPosts')
+      } catch (err) {
+        this.$store.dispatch('handleError', err.message)
+      }
     }
   }
 }

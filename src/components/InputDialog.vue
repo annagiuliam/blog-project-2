@@ -179,6 +179,7 @@
 <script>
 import categoriesGettext from './../helpers/categoriesGettext'
 import RoundBtn from './RoundBtn.vue'
+import axios from 'axios'
 export default {
   name: 'InputDialog',
   components: { RoundBtn },
@@ -296,15 +297,32 @@ export default {
         if (this.$store.state.currentPost) {
           // edit the current post in the store
           finalData = { ...this.postData }
-          this.$store.dispatch('editPost', finalData)
+          this.addEditedPost(finalData)
         } else {
           // it is a new post and you need to set date and id
           this.setPostId()
           this.setDate()
           finalData = { ...this.postData }
-          this.$store.dispatch('addNewPost', finalData)
+          this.addNewPost(finalData)
+          this.$store.dispatch('getPosts')
         }
         this.closeInputDialog()
+      }
+    },
+    async addNewPost (finalData) {
+      try {
+        await axios.post(`${this.$store.state.serverUrl}${finalData.id}`, finalData)
+        this.$store.dispatch('addNewPost', finalData)
+      } catch (err) {
+        this.$store.dispatch('handleError', err.message)
+      }
+    },
+    async addEditedPost (finalData) {
+      try {
+        await axios.put(`${this.$store.state.serverUrl}${finalData.id}`, finalData)
+        this.$store.dispatch('editPost', finalData)
+      } catch (err) {
+        this.$store.dispatch('handleError', err.message)
       }
     },
     closeInputDialog () {

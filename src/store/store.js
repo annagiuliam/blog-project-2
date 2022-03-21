@@ -3,13 +3,15 @@ import Vuex from 'vuex'
 import axios from 'axios'
 
 Vue.use(Vuex)
-const url = 'http://localhost:8000/'
 export const storeConfig = {
   strict: true,
   state: {
     currentPost: null,
     posts: [],
-    inputDialog: false
+    inputDialog: false,
+    errorDialog: false,
+    errorMessage: '',
+    serverUrl: 'http://localhost:8000/posts/'
   },
 
   mutations: {
@@ -43,15 +45,27 @@ export const storeConfig = {
     },
     clearCurrentPost: (state) => {
       state.currentPost = null
+    },
+    closeErrorDialog: (state) => {
+      state.errorDialog = false
+      state.errorMessage = ''
+    },
+    handleError: (state, errorMessage) => {
+      state.errorDialog = true
+      state.errorMessage = errorMessage
     }
 
   },
 
   actions: {
-    getPosts: ({ commit }) => {
-      axios.get(url).then(response => {
+    getPosts: async ({ commit, state }) => {
+      try {
+        const response = await axios.get(state.serverUrl)
+        console.log(response.data)
         commit('getPosts', response.data)
-      })
+      } catch (err) {
+        commit('handleError', err.message)
+      }
     },
     addNewPost: ({ commit }, payload) => {
       commit('addNewPost', payload)
@@ -76,6 +90,12 @@ export const storeConfig = {
     },
     closeInputDialog: ({ commit }) => {
       commit('closeInputDialog')
+    },
+    closeErrorDialog: ({ commit }) => {
+      commit('closeErrorDialog')
+    },
+    handleError: ({ commit }, errorMessage) => {
+      commit('handleError', errorMessage)
     }
 
   }

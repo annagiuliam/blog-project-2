@@ -74,6 +74,7 @@
 <script>
 import RoundBtn from './RoundBtn.vue'
 import categoriesGettex from './../helpers/categoriesGettext'
+import axios from 'axios'
 
 export default {
   name: 'PostContent',
@@ -96,7 +97,9 @@ export default {
       return categoriesGettex(this.$gettext)
     },
     formattedDate () {
-      return this.post.creationDate.toLocaleDateString(
+      // need to convert date from JSON string got from database
+      const parsedDate = new Date(this.post.creationDate)
+      return parsedDate.toLocaleDateString(
         this.$language.current,
         this.dateOptions
       )
@@ -114,11 +117,16 @@ export default {
     }
   },
   methods: {
-    deletePost () {
-      this.$store.dispatch('deletePost', this.post)
+    async deletePost () {
+      try {
+        await axios.delete(`${this.$store.state.serverUrl}${this.post.id}`)
+        this.$store.dispatch('deletePost', this.post)
 
-      if (this.$route.name === 'post-page') {
-        this.$router.push({ name: 'home' })
+        if (this.$route.name === 'post-page') {
+          this.$router.push({ name: 'home' })
+        }
+      } catch (err) {
+        this.$store.dispatch('handleError', err.message)
       }
     },
 
