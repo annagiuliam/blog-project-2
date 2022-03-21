@@ -23,10 +23,13 @@
           </v-container>
 
           <v-card-title>
-            Error
+            {{ $gettext('Error') }}
           </v-card-title>
           <v-card-text>
-            there has been an error
+            {{ errorMessage }}
+          </v-card-text>
+          <v-card-text>
+            {{ $gettext('Please try again later') }}
           </v-card-text>
         </v-card>
       </v-dialog>
@@ -39,19 +42,14 @@ import RoundBtn from './RoundBtn.vue'
 export default {
   name: 'ErrorDialog',
   components: { RoundBtn },
-  data () {
-    return {
-
-    }
-  },
 
   computed: {
     dialog () {
       return this.$store.state.errorDialog
+    },
+    errorMessage () {
+      return this.$store.state.errorMessage
     }
-  },
-  mounted () {
-
   },
 
   methods: {

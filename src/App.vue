@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <InputDialog />
+    <ErrorDialog />
     <transition name="fade">
       <router-view />
     </transition>
@@ -8,12 +9,14 @@
 </template>
 
 <script>
+// import axios from 'axios'
 import InputDialog from './components/InputDialog.vue'
+import ErrorDialog from './components/ErrorDialog.vue'
 
 export default {
   name: 'App',
   components: {
-    InputDialog
+    InputDialog, ErrorDialog
   },
   created () {
     this.$store.dispatch('getPosts')
