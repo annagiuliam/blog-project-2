@@ -62,6 +62,12 @@ msgstr ""
 msgid "No post to display"
 msgstr "Kein Beitrag"
 
+msgid "Password not valid: cannot complete request"
+msgstr "Ungültiges Passwort: Anfrage kann nicht bearbeitet werden"
+
+msgid "Please enter your password"
+msgstr "Bitte geben Sie das Passwort ein"
+
 msgid "Please try again later"
 msgstr "Bitte versuchen Sie später nochmal"
 

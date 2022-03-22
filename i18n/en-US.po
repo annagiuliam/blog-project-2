@@ -62,6 +62,12 @@ msgstr ""
 msgid "No post to display"
 msgstr ""
 
+msgid "Password not valid: cannot complete request"
+msgstr ""
+
+msgid "Please enter your password"
+msgstr ""
+
 msgid "Please try again later"
 msgstr ""
 

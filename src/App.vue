@@ -2,6 +2,7 @@
   <v-app>
     <InputDialog />
     <ErrorDialog />
+    <PasswordDialog />
     <transition name="fade">
       <router-view />
     </transition>
@@ -12,11 +13,12 @@
 // import axios from 'axios'
 import InputDialog from './components/InputDialog.vue'
 import ErrorDialog from './components/ErrorDialog.vue'
+import PasswordDialog from './components/PasswordDialog.vue'
 
 export default {
   name: 'App',
   components: {
-    InputDialog, ErrorDialog
+    InputDialog, ErrorDialog, PasswordDialog
   },
   created () {
     this.$store.dispatch('getPosts')

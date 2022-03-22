@@ -11,6 +11,7 @@ msgstr ""
 
 #: src/components/ErrorDialog.vue:34
 #: src/components/InputDialog.vue:48
+#: src/components/PasswordDialog.vue:34
 msgid "close"
 msgstr ""
 
@@ -98,6 +99,14 @@ msgstr ""
 
 #: src/components/PostTile.vue:22
 msgid "No post to display"
+msgstr ""
+
+#: src/components/PasswordDialog.vue:69
+msgid "Password not valid: cannot complete request"
+msgstr ""
+
+#: src/components/PasswordDialog.vue:57
+msgid "Please enter your password"
 msgstr ""
 
 #: src/components/ErrorDialog.vue:69
