@@ -114,22 +114,21 @@ export default {
     },
     fullName () {
       return `${this.post.firstName} ${this.post.middleName} ${this.post.lastName}`.trim()
+    },
+    password () {
+      return this.$store.state.password
     }
   },
   methods: {
     async deletePost () {
       try {
-        await axios.delete(`${this.$store.state.serverUrl}${this.post.id}`)
-        this.$store.dispatch('deletePost', this.post)
-
-        if (this.$route.name === 'post-page') {
-          this.$router.push({ name: 'home' })
-        }
+        const res = await axios.delete(`${this.$store.state.serverUrl}${this.post.id}`, { headers: { Authorization: this.password } })
+        console.log(res)
+        this.$store.dispatch('deletePost', this.post.id)
       } catch (err) {
         this.$store.dispatch('handleError', err.message)
       }
     },
-
     editPost () {
       this.$store.dispatch('updateCurrentPost', this.post)
       this.$store.dispatch('openInputDialog')

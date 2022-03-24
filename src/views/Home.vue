@@ -23,7 +23,7 @@
 
       <SquareBtn
         data-cm-qa="add-new-btn"
-        :disabled="disabled"
+        :disabled="!$store.state.password"
         @click="openInputDialog"
       >
         {{ $gettext('New Post') }}
@@ -86,10 +86,6 @@ export default {
     },
     filteredPosts () {
       return this.filterPosts()
-    },
-    disabled () {
-      console.log(!!this.$store.state.password)
-      return !this.$store.state.password
     }
   },
   methods: {

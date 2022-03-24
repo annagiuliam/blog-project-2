@@ -11,6 +11,7 @@ export const storeConfig = {
     inputDialog: false,
     errorDialog: false,
     passwordDialog: false,
+    errorMessage: '',
     password: '',
     serverUrl: 'http://localhost:8000/posts/'
   },
@@ -65,8 +66,8 @@ export const storeConfig = {
     },
     // error
     handleError: (state, errorMessage) => {
-      state.errorDialog = true
       state.errorMessage = errorMessage
+      state.errorDialog = true
     }
   },
 

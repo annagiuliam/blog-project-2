@@ -83,21 +83,13 @@ export default {
 
   },
 
-  mounted () {
-
-  },
-
   methods: {
     async handleAuth () {
-      console.log(this.password)
       try {
-        const res = await axios.post('http://localhost:8000/login/', {}, { headers: { Authorization: this.password } })
-        console.log(res)
+        await axios.post('http://localhost:8000/login/', {}, { headers: { Authorization: this.password } })
         this.$store.dispatch('savePassword', this.password)
-        console.log('dispatched')
         this.closePasswordDialog()
       } catch (err) {
-        console.log(err.response)
         if (err.response.status === 401) {
           this.$refs.form.reset()
           this.authFail = true
@@ -110,20 +102,15 @@ export default {
       this.authFail = false
     },
     closePasswordDialog () {
-      console.log(this.$refs.form)
       if (this.$refs.form) {
-        console.log('reset')
         this.$refs.form.reset()
       }
-
       this.authFail = false
       this.$store.dispatch('closePasswordDialog')
-      // this.$store.dispatch('clearAuthData')
     },
     submitPassword () {
       this.$store.dispatch('sendProtectedRequest', this.password)
       this.$refs.form.reset()
-      console.log(this.password)
     }
   }
 }
