@@ -22,7 +22,7 @@ export default {
 }
 .left {
   top: 25%;
-  left: -150%;
+  right: 100%;
   width: 5rem;
   transform: none;
 }
