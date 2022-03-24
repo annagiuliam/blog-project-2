@@ -12,6 +12,7 @@
       color="indigo"
       :x-small="xSmall"
       :small="small"
+      :disabled="disabled"
       class="ma-2"
       :data-cm-qa="dataCmQa"
       @click="$emit('click')"
@@ -27,7 +28,7 @@ import Tooltip from './Tooltip.vue'
 
 export default {
   components: { Tooltip },
-  props: ['tooltipText', 'tooltipClass', 'dataCmQa', 'xSmall', 'small'],
+  props: ['tooltipText', 'tooltipClass', 'dataCmQa', 'xSmall', 'small', 'disabled'],
   data () {
     return {
       showTooltip: false

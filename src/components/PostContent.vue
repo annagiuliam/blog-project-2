@@ -20,6 +20,7 @@
                 data-cm-qa="delete-btn"
                 :tooltip-text="$gettext('delete')"
                 tooltip-class="top"
+                :disabled="!$store.state.password"
                 x-small
                 @click="deletePost"
               >
@@ -29,6 +30,7 @@
                 data-cm-qa="edit-btn"
                 :tooltip-text="$gettext('edit')"
                 tooltip-class="top"
+                :disabled="!$store.state.password"
                 x-small
                 @click="editPost"
               >
@@ -74,7 +76,7 @@
 <script>
 import RoundBtn from './RoundBtn.vue'
 import categoriesGettex from './../helpers/categoriesGettext'
-import axios from 'axios'
+// import axios from 'axios'
 
 export default {
   name: 'PostContent',
@@ -122,7 +124,7 @@ export default {
   methods: {
     async deletePost () {
       try {
-        const res = await axios.delete(`${this.$store.state.serverUrl}${this.post.id}`, { headers: { Authorization: this.password } })
+        const res = await this.$axios.delete(`${this.post.id}`, { headers: { Authorization: this.password } })
         console.log(res)
         this.$store.dispatch('deletePost', this.post.id)
       } catch (err) {

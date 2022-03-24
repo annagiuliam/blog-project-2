@@ -62,6 +62,7 @@
     <v-row>
       <SquareBtn
         data-cm-qa="delete-all-btn"
+        :disabled="!$store.state.password"
         @click="deleteAllPosts"
       >
         {{ $gettext('Delete all posts') }}
@@ -108,7 +109,8 @@ export default {
     },
     async deleteAllPosts () {
       try {
-        await axios.delete(`${this.$store.state.serverUrl}delete`)
+        // await axios.delete(`${this.$store.state.serverUrl}delete`)
+        await axios.delete(`${this.$store.state.serverUrl}`)
         this.$store.dispatch('deleteAllPosts')
       } catch (err) {
         this.$store.dispatch('handleError', err.message)
