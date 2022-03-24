@@ -6,7 +6,6 @@
     :items="languagesKeys"
   >
     <template #item="{item}">
-      <!-- Flag is not a vuetify component, therefore margin needs to be added with style  -->
       <Flag
         :code="languagesObj[item].code"
         style="margin-right: 1rem"
