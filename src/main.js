@@ -3,6 +3,7 @@ import App from './App.vue'
 import vuetify from './plugins/vuetify'
 import { store } from './store/store'
 import router from './router'
+import axios from 'axios'
 
 import GetTextPlugin from 'vue-gettext'
 import translations from './../i18n/parsed.json'
@@ -32,6 +33,9 @@ Vue.use(GetTextPlugin, {
 
 Vue.config.productionTip = false
 
+axios.defaults.baseURL = 'http://localhost:8000/posts/'
+
+Vue.prototype.$axios = axios
 new Vue({
   router,
   store,
