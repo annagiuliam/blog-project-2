@@ -10,19 +10,21 @@ export const storeConfig = {
     posts: [],
     inputDialog: false,
     errorDialog: false,
-    errorMessage: '',
+    passwordDialog: false,
+    password: '',
     serverUrl: 'http://localhost:8000/posts/'
   },
 
   mutations: {
+    // posts
     getPosts: (state, payload) => {
       state.posts = [...payload]
     },
     addNewPost: (state, payload) => {
       state.posts.push(payload)
     },
-    deletePost: (state, payload) => {
-      const filteredPosts = state.posts.filter((ele) => ele.id !== payload.id)
+    deletePost: (state, postId) => {
+      const filteredPosts = state.posts.filter((ele) => ele.id !== postId)
       state.posts = [...filteredPosts]
     },
     editPost: (state, payload) => {
@@ -36,25 +38,36 @@ export const storeConfig = {
     updateCurrentPost: (state, payload) => {
       state.currentPost = { ...payload }
     },
-
+    clearCurrentPost: (state) => {
+      state.currentPost = null
+    },
+    // dialogs
     openInputDialog: (state) => {
       state.inputDialog = true
     },
     closeInputDialog: (state) => {
       state.inputDialog = false
     },
-    clearCurrentPost: (state) => {
-      state.currentPost = null
-    },
     closeErrorDialog: (state) => {
       state.errorDialog = false
       state.errorMessage = ''
     },
+    closePasswordDialog: (state) => {
+      state.passwordDialog = false
+    },
+    openPasswordDialog: (state) => {
+      state.passwordDialog = true
+    },
+    // auth
+    savePassword: (state, password) => {
+      state.password = password
+      console.log('saved password in mutation', state.password)
+    },
+    // error
     handleError: (state, errorMessage) => {
       state.errorDialog = true
       state.errorMessage = errorMessage
     }
-
   },
 
   actions: {
@@ -70,8 +83,8 @@ export const storeConfig = {
     addNewPost: ({ commit }, payload) => {
       commit('addNewPost', payload)
     },
-    deletePost: ({ commit }, payload) => {
-      commit('deletePost', payload)
+    deletePost: ({ commit }, postId) => {
+      commit('deletePost', postId)
     },
     editPost: ({ commit }, payload) => {
       commit('editPost', payload)
@@ -85,6 +98,7 @@ export const storeConfig = {
     clearCurrentPost: ({ commit }) => {
       commit('clearCurrentPost')
     },
+    // dialogs
     openInputDialog: ({ commit }) => {
       commit('openInputDialog')
     },
@@ -93,6 +107,16 @@ export const storeConfig = {
     },
     closeErrorDialog: ({ commit }) => {
       commit('closeErrorDialog')
+    },
+    closePasswordDialog: ({ commit }) => {
+      commit('closePasswordDialog')
+    },
+    openPasswordDialog: ({ commit }) => {
+      commit('openPasswordDialog')
+    },
+
+    savePassword: ({ commit }, password) => {
+      commit('savePassword', password)
     },
     handleError: ({ commit }, errorMessage) => {
       commit('handleError', errorMessage)
