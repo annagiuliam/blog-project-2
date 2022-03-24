@@ -8,7 +8,6 @@ import GetTextPlugin from 'vue-gettext'
 import translations from './../i18n/parsed.json'
 
 import Flag from 'vue-flagpack'
-
 Vue.use(Flag, {
   name: 'Flag'
 })

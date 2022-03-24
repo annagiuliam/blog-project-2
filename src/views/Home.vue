@@ -1,10 +1,29 @@
 <template>
   <div>
     <v-container class="d-flex flex-column justify-center">
-      <LanguageSelector style="width: 200px" />
+      <v-row>
+        <v-col cols="10">
+          <LanguageSelector style="width: 200px" />
+        </v-col>
+        <v-col
+          cols="2"
+        >
+          <RoundBtn
+            data-cm-qa="
+          delete-btn"
+            :tooltip-text="$gettext('login')"
+            tooltip-class="left"
+            small
+            @click="openPasswordDialog"
+          >
+            <v-icon>mdi-key</v-icon>
+          </RoundBtn>
+        </v-col>
+      </v-row>
 
       <SquareBtn
         data-cm-qa="add-new-btn"
+        :disabled="disabled"
         @click="openInputDialog"
       >
         {{ $gettext('New Post') }}
@@ -44,6 +63,7 @@
 import PostTile from './../components/PostTile.vue'
 import Filters from './../components/Filters.vue'
 import SquareBtn from './../components/SquareBtn.vue'
+import RoundBtn from './../components/RoundBtn.vue'
 import LanguageSelector from './../components/LanguageSelector.vue'
 export default {
   name: 'Home',
@@ -52,6 +72,7 @@ export default {
     Filters,
     PostTile,
     SquareBtn,
+    RoundBtn,
     LanguageSelector
   },
   data () {
@@ -65,13 +86,19 @@ export default {
     },
     filteredPosts () {
       return this.filterPosts()
+    },
+    disabled () {
+      console.log(!!this.$store.state.password)
+      return !this.$store.state.password
     }
   },
   methods: {
     openInputDialog () {
       this.$store.dispatch('openInputDialog')
     },
-
+    openPasswordDialog () {
+      this.$store.dispatch('openPasswordDialog')
+    },
     updateFilters (finalFilters) {
       this.filters = { ...finalFilters }
       this.filterPosts()
