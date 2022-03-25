@@ -63,6 +63,9 @@ export const storeConfig = {
       state.password = password
       console.log('saved password in mutation', state.password)
     },
+    logout: (state) => {
+      state.password = ''
+    },
     // error
     handleError: (state, errorMessage) => {
       state.errorMessage = errorMessage
@@ -114,10 +117,14 @@ export const storeConfig = {
     openPasswordDialog: ({ commit }) => {
       commit('openPasswordDialog')
     },
-
+    // auth
     savePassword: ({ commit }, password) => {
       commit('savePassword', password)
     },
+    logout: ({ commit }) => {
+      commit('logout')
+    },
+    // error
     handleError: ({ commit }, errorMessage) => {
       commit('handleError', errorMessage)
     }

@@ -21,21 +21,30 @@
               </RoundBtn>
             </v-row>
           </v-container>
+          <v-container v-if="authenticated">
+            <v-card-text>
+              {{ $gettext('You are already logged in') }}
+            </v-card-text>
+            <v-row justify="space-around">
+              <SquareBtn @click="logout">
+                {{ $gettext('Logout') }}
+              </SquareBtn>
+            </v-row>
+          </v-container>
           <v-container v-if="authFail">
             <v-card-text>
               {{ $gettext('Password not valid: cannot complete request') }}
             </v-card-text>
             <v-row justify="space-around">
-              <v-btn @click="retryPassword">
+              <SquareBtn @click="retryPassword">
                 {{ $gettext('Retry') }}
-              </v-btn>
-
-              <v-btn @click="closePasswordDialog">
+              </SquareBtn>
+              <SquareBtn @click="closePasswordDialog">
                 {{ $gettext('Close') }}
-              </v-btn>
+              </SquareBtn>
             </v-row>
           </v-container>
-          <v-container v-else>
+          <v-container v-if="!authenticated && !authFail">
             <v-card-title>
               {{ $gettext('Please enter your password') }}
             </v-card-title>
@@ -51,9 +60,11 @@
                   </v-col>
                 </v-row>
                 <v-row justify="center">
-                  <v-btn @click="handleAuth">
+                  <SquareBtn
+                    @click="handleAuth"
+                  >
                     {{ $gettext('Save') }}
-                  </v-btn>
+                  </SquareBtn>
                 </v-row>
               </v-form>
             </v-card-text>
@@ -66,10 +77,11 @@
 
 <script>
 import RoundBtn from './RoundBtn.vue'
+import SquareBtn from './SquareBtn.vue'
 import axios from 'axios'
 export default {
   name: 'PasswordDialog',
-  components: { RoundBtn },
+  components: { RoundBtn, SquareBtn },
   data () {
     return {
       password: '',
@@ -79,6 +91,9 @@ export default {
   computed: {
     dialog () {
       return this.$store.state.passwordDialog
+    },
+    authenticated () {
+      return !!this.$store.state.password
     }
 
   },
@@ -111,6 +126,9 @@ export default {
     submitPassword () {
       this.$store.dispatch('sendProtectedRequest', this.password)
       this.$refs.form.reset()
+    },
+    logout () {
+      this.$store.dispatch('logout')
     }
   }
 }
