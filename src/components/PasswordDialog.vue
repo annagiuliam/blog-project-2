@@ -27,11 +27,11 @@
             </v-card-text>
             <v-row justify="space-around">
               <v-btn @click="retryPassword">
-                Retry
+                {{ $gettext('Retry') }}
               </v-btn>
 
               <v-btn @click="closePasswordDialog">
-                Close
+                {{ $gettext('Close') }}
               </v-btn>
             </v-row>
           </v-container>

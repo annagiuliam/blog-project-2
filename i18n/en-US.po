@@ -8,6 +8,9 @@ msgstr ""
 msgid "Category"
 msgstr ""
 
+msgid "Close"
+msgstr ""
+
 msgid "Content"
 msgstr ""
 
@@ -62,6 +65,9 @@ msgstr ""
 msgid "No post to display"
 msgstr ""
 
+msgid "Password"
+msgstr ""
+
 msgid "Password not valid: cannot complete request"
 msgstr ""
 
@@ -72,6 +78,9 @@ msgid "Please try again later"
 msgstr ""
 
 msgid "Politics"
+msgstr ""
+
+msgid "Retry"
 msgstr ""
 
 msgid "Save"
@@ -102,6 +111,9 @@ msgid "edit"
 msgstr ""
 
 msgid "go back"
+msgstr ""
+
+msgid "login"
 msgstr ""
 
 msgid "read"

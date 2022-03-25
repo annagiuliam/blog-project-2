@@ -11,8 +11,12 @@ msgstr ""
 
 #: src/components/ErrorDialog.vue:34
 #: src/components/InputDialog.vue:48
-#: src/components/PasswordDialog.vue:34
+#: src/components/PasswordDialog.vue:38
 msgid "close"
+msgstr ""
+
+#: src/components/PasswordDialog.vue:78
+msgid "Close"
 msgstr ""
 
 #: src/components/InputDialog.vue:224
@@ -27,7 +31,7 @@ msgstr ""
 msgid "delete"
 msgstr ""
 
-#: src/components/Filters.vue:104
+#: src/components/Filters.vue:105
 msgid "Delete all posts"
 msgstr ""
 
@@ -35,7 +39,7 @@ msgstr ""
 msgid "E-mail"
 msgstr ""
 
-#: src/components/PostContent.vue:65
+#: src/components/PostContent.vue:66
 msgid "edit"
 msgstr ""
 
@@ -75,6 +79,10 @@ msgstr ""
 msgid "Latest News"
 msgstr ""
 
+#: src/views/Home.vue:34
+msgid "login"
+msgstr ""
+
 #: src/components/InputDialog.vue:16
 msgid "Max. number of characters reached"
 msgstr ""
@@ -88,11 +96,11 @@ msgid "Nature"
 msgstr ""
 
 #: src/components/InputDialog.vue:73
-#: src/views/Home.vue:25
+#: src/views/Home.vue:61
 msgid "New Post"
 msgstr ""
 
-#: src/components/PostContent.vue:137
+#: src/components/PostContent.vue:139
 #: src/views/PostPage.vue:51
 msgid "No post found"
 msgstr ""
@@ -101,11 +109,15 @@ msgstr ""
 msgid "No post to display"
 msgstr ""
 
-#: src/components/PasswordDialog.vue:69
+#: src/components/PasswordDialog.vue:108
+msgid "Password"
+msgstr ""
+
+#: src/components/PasswordDialog.vue:64
 msgid "Password not valid: cannot complete request"
 msgstr ""
 
-#: src/components/PasswordDialog.vue:57
+#: src/components/PasswordDialog.vue:92
 msgid "Please enter your password"
 msgstr ""
 
@@ -121,7 +133,12 @@ msgstr ""
 msgid "read"
 msgstr ""
 
+#: src/components/PasswordDialog.vue:72
+msgid "Retry"
+msgstr ""
+
 #: src/components/InputDialog.vue:240
+#: src/components/PasswordDialog.vue:120
 msgid "Save"
 msgstr ""
 
@@ -137,7 +154,7 @@ msgstr ""
 msgid "Sort by date"
 msgstr ""
 
-#: src/views/Home.vue:34
+#: src/views/Home.vue:70
 msgid "There are no blog posts"
 msgstr ""
 

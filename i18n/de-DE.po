@@ -8,6 +8,9 @@ msgstr ""
 msgid "Category"
 msgstr "Kategorie"
 
+msgid "Close"
+msgstr "Schließen"
+
 msgid "Content"
 msgstr "Inhalt"
 
@@ -62,6 +65,9 @@ msgstr ""
 msgid "No post to display"
 msgstr "Kein Beitrag"
 
+msgid "Password"
+msgstr "Passwort"
+
 msgid "Password not valid: cannot complete request"
 msgstr "Ungültiges Passwort: Anfrage kann nicht bearbeitet werden"
 
@@ -73,6 +79,9 @@ msgstr "Bitte versuchen Sie später nochmal"
 
 msgid "Politics"
 msgstr "Politik"
+
+msgid "Retry"
+msgstr "Wiederholen"
 
 msgid "Save"
 msgstr "Speichern"
@@ -103,6 +112,9 @@ msgstr "bearbeiten"
 
 msgid "go back"
 msgstr "zurück"
+
+msgid "login"
+msgstr "einloggen"
 
 msgid "read"
 msgstr "lesen"
