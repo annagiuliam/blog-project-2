@@ -109,8 +109,10 @@ export default {
     },
     async deleteAllPosts () {
       try {
-        // await axios.delete(`${this.$store.state.serverUrl}delete`)
-        await axios.delete(`${this.$store.state.serverUrl}`)
+        // right path
+        await axios.delete('posts/')
+        // wrong path
+        // await axios.delete('/')
         this.$store.dispatch('deleteAllPosts')
       } catch (err) {
         this.$store.dispatch('handleError', err.message)

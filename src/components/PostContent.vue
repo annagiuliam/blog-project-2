@@ -124,8 +124,8 @@ export default {
   methods: {
     async deletePost () {
       try {
-        const res = await this.$axios.delete(`${this.post.id}`, { headers: { Authorization: this.password } })
-        console.log(res)
+        // await this.$axios.delete(`posts/${this.post.id}`, { headers: { Authorization: this.password } })
+        await this.$axios.delete(`posts/${this.post.id}`)
         this.$store.dispatch('deletePost', this.post.id)
       } catch (err) {
         this.$store.dispatch('handleError', err.message)

@@ -304,23 +304,31 @@ export default {
           this.setDate()
           finalData = { ...this.postData }
           this.addNewPost(finalData)
-          this.$store.dispatch('getPosts')
         }
-        this.closeInputDialog()
+        // this.closeInputDialog()
       }
     },
     async addNewPost (finalData) {
       try {
-        await axios.post(`${this.$store.state.serverUrl}${finalData.id}`, finalData)
+        // WRONG PATH!!!
+        // await axios.post(`${finalData.id}`, finalData)
+        // right path
+        await axios.post(`posts/${finalData.id}`, finalData)
         this.$store.dispatch('addNewPost', finalData)
+        this.closeInputDialog()
       } catch (err) {
+        console.log(this.$store.state.currentPost)
         this.$store.dispatch('handleError', err.message)
       }
     },
     async addEditedPost (finalData) {
       try {
-        await axios.put(`${this.$store.state.serverUrl}${finalData.id}`, finalData)
+        // right path
+        await axios.put(`posts/${finalData.id}`, finalData)
+        // wrong path
+        // await axios.put(`${finalData.id}`, finalData)
         this.$store.dispatch('editPost', finalData)
+        this.closeInputDialog()
       } catch (err) {
         this.$store.dispatch('handleError', err.message)
       }

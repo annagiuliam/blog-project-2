@@ -86,7 +86,7 @@ export default {
   methods: {
     async handleAuth () {
       try {
-        await axios.post('http://localhost:8000/login/', {}, { headers: { Authorization: this.password } })
+        await axios.post('login/', {}, { headers: { Authorization: this.password } })
         this.$store.dispatch('savePassword', this.password)
         this.closePasswordDialog()
       } catch (err) {

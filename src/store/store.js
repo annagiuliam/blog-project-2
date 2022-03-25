@@ -12,8 +12,7 @@ export const storeConfig = {
     errorDialog: false,
     passwordDialog: false,
     errorMessage: '',
-    password: '',
-    serverUrl: 'http://localhost:8000/posts/'
+    password: ''
   },
 
   mutations: {
@@ -74,7 +73,7 @@ export const storeConfig = {
   actions: {
     getPosts: async ({ commit, state }) => {
       try {
-        const response = await axios.get(state.serverUrl)
+        const response = await axios.get('posts/')
         console.log(response.data)
         commit('getPosts', response.data)
       } catch (err) {
