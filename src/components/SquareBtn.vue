@@ -1,6 +1,6 @@
 <template>
   <v-btn
-    class="my-9 mx-auto"
+    class="my-7 mx-auto"
     outlined
     :disabled="disabled"
     color="indigo"

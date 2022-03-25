@@ -159,12 +159,12 @@
                   </v-row>
 
                   <v-row justify="end">
-                    <v-btn
+                    <SquareBtn
                       data-cm-qa="save-btn"
                       @click="sendMessage"
                     >
                       {{ $gettext('Save') }}
-                    </v-btn>
+                    </SquareBtn>
                   </v-row>
                 </v-container>
               </v-form>
@@ -179,10 +179,11 @@
 <script>
 import categoriesGettext from './../helpers/categoriesGettext'
 import RoundBtn from './RoundBtn.vue'
+import SquareBtn from './SquareBtn.vue'
 import axios from 'axios'
 export default {
   name: 'InputDialog',
-  components: { RoundBtn },
+  components: { RoundBtn, SquareBtn },
   data () {
     return {
       cols: 12,
