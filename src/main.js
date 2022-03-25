@@ -33,9 +33,22 @@ Vue.use(GetTextPlugin, {
 
 Vue.config.productionTip = false
 
-axios.defaults.baseURL = 'http://localhost:8000/posts/'
+axios.defaults.baseURL = 'http://localhost:8000/'
+axios.interceptors.request.use(
+  (config) => {
+    const token = store.state.password
+    if (token) {
+      config.headers.Authorization = token
+    }
+    return config
+  },
+  (err) => {
+    return Promise.reject(err)
+  }
+)
 
 Vue.prototype.$axios = axios
+
 new Vue({
   router,
   store,
