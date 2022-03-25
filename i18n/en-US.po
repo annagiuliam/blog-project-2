@@ -47,6 +47,9 @@ msgstr ""
 msgid "Latest News"
 msgstr ""
 
+msgid "Logout"
+msgstr ""
+
 msgid "Max. number of characters reached"
 msgstr ""
 
@@ -99,6 +102,9 @@ msgid "There are no blog posts"
 msgstr "There are no blog posts"
 
 msgid "Title"
+msgstr ""
+
+msgid "You are already logged in"
 msgstr ""
 
 msgid "close"

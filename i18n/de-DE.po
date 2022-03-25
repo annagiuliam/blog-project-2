@@ -47,6 +47,9 @@ msgstr "Nachname"
 msgid "Latest News"
 msgstr "Aktuell"
 
+msgid "Logout"
+msgstr "Ausloggen"
+
 msgid "Max. number of characters reached"
 msgstr "Max. Länge erreicht"
 
@@ -100,6 +103,9 @@ msgstr "Es gibt noch keine Blogbeiträge"
 
 msgid "Title"
 msgstr "Titel"
+
+msgid "You are already logged in"
+msgstr "Sie sind schon eingeloggt"
 
 msgid "close"
 msgstr "schließen"

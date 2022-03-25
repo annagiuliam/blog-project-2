@@ -15,7 +15,7 @@ msgstr ""
 msgid "close"
 msgstr ""
 
-#: src/components/PasswordDialog.vue:78
+#: src/components/PasswordDialog.vue:102
 msgid "Close"
 msgstr ""
 
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Content"
 msgstr ""
 
-#: src/components/InputDialog.vue:13
+#: src/components/InputDialog.vue:14
 msgid "Content missing"
 msgstr ""
 
@@ -67,7 +67,7 @@ msgstr ""
 msgid "go back"
 msgstr ""
 
-#: src/components/InputDialog.vue:20
+#: src/components/InputDialog.vue:21
 msgid "Invalid e-mail."
 msgstr ""
 
@@ -83,7 +83,11 @@ msgstr ""
 msgid "login"
 msgstr ""
 
-#: src/components/InputDialog.vue:16
+#: src/components/PasswordDialog.vue:72
+msgid "Logout"
+msgstr ""
+
+#: src/components/InputDialog.vue:17
 msgid "Max. number of characters reached"
 msgstr ""
 
@@ -109,15 +113,15 @@ msgstr ""
 msgid "No post to display"
 msgstr ""
 
-#: src/components/PasswordDialog.vue:108
+#: src/components/PasswordDialog.vue:134
 msgid "Password"
 msgstr ""
 
-#: src/components/PasswordDialog.vue:64
+#: src/components/PasswordDialog.vue:88
 msgid "Password not valid: cannot complete request"
 msgstr ""
 
-#: src/components/PasswordDialog.vue:92
+#: src/components/PasswordDialog.vue:118
 msgid "Please enter your password"
 msgstr ""
 
@@ -133,12 +137,12 @@ msgstr ""
 msgid "read"
 msgstr ""
 
-#: src/components/PasswordDialog.vue:72
+#: src/components/PasswordDialog.vue:96
 msgid "Retry"
 msgstr ""
 
 #: src/components/InputDialog.vue:240
-#: src/components/PasswordDialog.vue:120
+#: src/components/PasswordDialog.vue:146
 msgid "Save"
 msgstr ""
 
@@ -160,4 +164,8 @@ msgstr ""
 
 #: src/components/InputDialog.vue:208
 msgid "Title"
+msgstr ""
+
+#: src/components/PasswordDialog.vue:64
+msgid "You are already logged in"
 msgstr ""
